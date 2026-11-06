@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Guía interactiva de reforzamiento PNL y Machine Learning, dos retos ficticios, historietas de repaso, recursos web y propuesta para la Expo de diciembre de 2026.">
+<title>Laboratorio de Proyecto IA | CECyTE</title>
+<style>
+:root{color-scheme:light;--bg:#f3f6fb;--paper:#fff;--ink:#172033;--muted:#596579;--line:#d9e1ec;--blue:#2457a7;--blue2:#eaf1ff;--teal:#087f73;--teal2:#e6f7f4;--yellow:#9b6500;--yellow2:#fff5d9;--red:#ad2638;--red2:#fff0f1;--green:#147447;--green2:#e8f7ee;--code:#111827;--codetext:#e5edf8;--shadow:0 8px 28px rgba(20,40,80,.08)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}a{color:var(--blue)}header{background:linear-gradient(120deg,#102c59,#2457a7 58%,#147d85);color:white;padding:30px 18px 26px}header .wrap,main,.navwrap{max-width:1080px;margin:auto}header h1{font-size:clamp(1.75rem,4vw,2.6rem);line-height:1.1;margin:0 0 9px}header p{max-width:850px;margin:0;color:#e8f1ff}.eyebrow{font-weight:800;letter-spacing:.09em;text-transform:uppercase;font-size:.77rem;color:#d3e4ff}.notice{background:#fff;border-left:5px solid #e5a300;color:#3f351c;padding:12px 14px;border-radius:9px;margin:18px 0 0;max-width:850px}.navwrap{padding:12px 16px 0}.nav{display:flex;gap:8px;flex-wrap:wrap}.nav a{background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 12px;text-decoration:none;font-weight:650;font-size:.88rem}.nav a:hover{background:var(--blue2)}main{padding:8px 16px 52px}.card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px;margin:18px 0;box-shadow:var(--shadow)}h2{font-size:1.35rem;margin:0 0 10px}h3{font-size:1.05rem;margin:14px 0 7px}.lead{font-size:1.04rem;color:#34425a}.muted,.small{color:var(--muted)}.small{font-size:.88rem}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.step{border:1px solid var(--line);border-radius:12px;padding:13px;background:#fcfdff}.step b{display:block;margin-bottom:4px}.num{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--blue2);color:var(--blue);font-weight:800;margin-right:6px}.callout{padding:12px 14px;border-radius:10px;background:var(--blue2);border:1px solid #cfddfb;margin:12px 0}.warn{padding:12px 14px;border-radius:10px;background:var(--yellow2);border:1px solid #f0d994;margin:12px 0}.good{padding:12px 14px;border-radius:10px;background:var(--green2);border:1px solid #bce4ca;margin:12px 0}.danger{padding:12px 14px;border-radius:10px;background:var(--red2);border:1px solid #f1c4ca;margin:12px 0}.tag{display:inline-block;background:var(--blue2);color:var(--blue);border-radius:999px;padding:3px 9px;font-size:.78rem;font-weight:800}.tablewrap{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:.93rem}th,td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:#f1f5fb}pre{white-space:pre;overflow:auto;background:var(--code);color:var(--codetext);padding:15px;border-radius:12px;font-size:.84rem;line-height:1.5;tab-size:4}.codehead{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:12px 0 4px}.btn,button{font:inherit;cursor:pointer;border:1px solid #b9c8dd;border-radius:9px;padding:9px 13px;background:#fff;color:var(--ink);font-weight:700}.btn.primary,button.primary{background:var(--blue);border-color:var(--blue);color:white}.btn:hover,button:hover{filter:brightness(.97)}button:focus,input:focus,textarea:focus,select:focus{outline:3px solid #9dbbff;outline-offset:1px}.quiz{border:1px solid var(--line);padding:13px;border-radius:12px;margin:12px 0}.quiz label{display:block;margin:6px 0}.feedback{font-weight:700;margin-top:8px}.challenge{border-top:5px solid var(--teal)}.challenge.b{border-top-color:#8159bf}.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.field{margin:8px 0}.field.full{grid-column:1/-1}label{display:block;font-weight:700;font-size:.92rem;margin-bottom:4px}input,select,textarea{width:100%;font:inherit;background:#fff;border:1px solid #bac6d6;border-radius:9px;padding:10px;color:var(--ink)}textarea{min-height:82px;resize:vertical}.hint{font-size:.82rem;color:var(--muted);margin-top:4px}.checks{display:flex;gap:10px;flex-wrap:wrap}.checks label{font-weight:500;display:flex;gap:7px;align-items:flex-start}.checks input{width:auto;margin-top:5px}.result{border:2px dashed var(--line);border-radius:12px;padding:15px;margin-top:16px;min-height:60px}.status{display:inline-block;border-radius:999px;padding:5px 11px;font-weight:900;font-size:.86rem}.status.green{background:var(--green2);color:var(--green)}.status.yellow{background:var(--yellow2);color:var(--yellow)}.status.red{background:var(--red2);color:var(--red)}.actions{display:flex;gap:9px;flex-wrap:wrap;margin:14px 0}.hidden{display:none!important}.timeline{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.milestone{border-radius:12px;padding:12px;background:#f6f8fc;border:1px solid var(--line)}.milestone strong{display:block;color:var(--blue)}.print-only{display:none}.foot{color:var(--muted);font-size:.86rem;text-align:center;padding:20px 12px}.sep{height:1px;background:var(--line);margin:16px 0}.mono{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
+
+/* Historietas de reforzamiento */
+.comic-intro{background:linear-gradient(120deg,#fff4d4,#edf4ff);border:2px solid #253552;border-radius:14px;padding:15px;margin:14px 0;color:#172033}
+.comic-story{border:3px solid #253552;border-radius:16px;padding:14px;margin:18px 0;background:#f8fbff;box-shadow:5px 5px 0 #253552}
+.comic-story.dataset{--comic:#6c4cf5;--comicbg:#f1edff}
+.comic-story.alerta{--comic:#d97706;--comicbg:#fff3d9}
+.comic-title{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:10px}
+.comic-title .emoji{font-size:2rem;background:var(--comicbg);border:2px solid #253552;border-radius:12px;padding:5px 9px}
+.comic-title h3{margin:0;color:#172033;font-size:1.2rem}
+.comic-panels{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.comic-panel{position:relative;min-height:150px;background:var(--comicbg);border:2px solid #253552;border-radius:12px;padding:11px 12px 12px;color:#172033;overflow:hidden}
+.comic-panel:nth-child(3n+2){background:#eaf5ff}
+.comic-panel:nth-child(3n){background:#effbea}
+.comic-panel .panel-no{display:inline-grid;place-items:center;width:28px;height:28px;border:2px solid #253552;border-radius:50%;background:#fff;color:#172033;font-weight:900;margin-right:5px}
+.comic-panel h4{display:inline;font-size:1rem;margin:0}
+.comic-panel .bubble{background:#fff;border:2px solid #253552;border-radius:14px;padding:9px 11px;margin:9px 0 6px;font-weight:600;position:relative}
+.comic-panel .bubble:after{content:"";position:absolute;bottom:-8px;left:20px;width:13px;height:13px;background:#fff;border-left:2px solid #253552;border-bottom:2px solid #253552;transform:rotate(-45deg)}
+.comic-panel .speaker{font-size:.76rem;font-weight:900;text-transform:uppercase;letter-spacing:.04em;color:var(--comic)}
+.comic-panel .takeaway{font-size:.86rem;margin:8px 0 0;padding-top:7px;border-top:1px dashed #76839a}
+.comic-panel .takeaway strong{color:#172033}
+.comic-end{background:#fff;border:2px dashed #253552;border-radius:12px;padding:12px;margin-top:12px;color:#172033}
+.comic-quiz{border:2px solid #253552;border-radius:12px;margin-top:12px;padding:12px;background:#fff;color:#172033}
+.comic-quiz summary{font-weight:800;cursor:pointer;color:#172033}
+.resource-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.resource{border:1px solid var(--line);border-radius:13px;padding:14px;background:#fbfdff}
+.resource h3{margin:4px 0 6px}
+.resource .level{display:inline-block;border-radius:999px;padding:3px 8px;font-size:.75rem;background:#e9f1ff;color:#214f97;font-weight:800}
+.resource a{font-weight:800}
+.schedule{display:grid;gap:10px}
+.schedule-row{display:grid;grid-template-columns:150px 1fr;gap:12px;border:1px solid var(--line);border-radius:12px;padding:12px;background:#fbfcff}
+.schedule-date{font-weight:850;color:var(--blue)}
+.schedule-row p{margin:3px 0}
+@media(max-width:760px){.comic-panels,.resource-grid{grid-template-columns:1fr}.schedule-row{grid-template-columns:1fr}.comic-panel{min-height:0}}
+@media print{#refuerzo,#recursos{display:none!important}}
+
+@media(max-width:760px){.grid,.grid3,.fields{grid-template-columns:1fr}.timeline{grid-template-columns:repeat(2,minmax(0,1fr))}.card{padding:16px}}
+@media print{body{background:#fff;font-size:11pt;color:#111}header,.navwrap,#historietas,#recursos,#retos,#retoA,#retoB,#formulario,#fechas,.foot,.no-print{display:none!important}main{max-width:none;padding:0;margin:0}.print-only{display:block!important}.print-sheet{border:0;box-shadow:none;margin:0;padding:0}.print-sheet h1{font-size:20pt}.print-sheet h2{font-size:14pt}.print-sheet table{font-size:9pt}.print-sheet .status{border:1px solid #555}.print-sheet .teacherbox{border:1px solid #777;min-height:100px;padding:10px;margin-top:18px}.print-sheet .muted{color:#333}a{color:#111;text-decoration:none} }
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="eyebrow">M2S1 · Soluciona problemas con Machine Learning | M2S2 · Soluciona problemas con PNL</div>
+  <h1>🧭 Laboratorio de Proyecto IA</h1>
+  <p>Refuerza lo aprendido en M2S1 y M2S2, explora dos retos ficticios, recupera ideas con historietas y prepara tu propuesta para la Expo de diciembre de 2026.</p>
+  <div class="notice"><strong>Antes de empezar:</strong> esta app es una guía de aprendizaje y una preevaluación por reglas. No es un modelo de IA ni autoriza proyectos automáticamente. El visto bueno final lo da el docente después de revisar objetivo, datos, seguridad y recursos.</div>
+</div></header>
+<div class="navwrap no-print"><nav class="nav">
+<a href="#historietas">1. Historietas de repaso</a><a href="#retos">2. Retos para experimentar</a><a href="#recursos">3. Recursos extras</a><a href="#formulario">4. Mi propuesta</a><a href="#fechas">5. Plan de trabajo</a>
+</nav></div>
+<main>
+<section id="historietas" class="card">
+  <span class="tag">REFORZAMIENTO VISUAL · NO SON PRÁCTICAS NUEVAS</span>
+  <h2>1. Historietas para recordar lo que ya aprendiste</h2>
+  <p class="lead">¿Todavía no encuentras un problema para tu proyecto? Regresa a estas dos historias. No tienes que entregar ejercicios adicionales: léelas, identifica qué conocimientos aparecen y deja que te inspiren para observar necesidades de tu escuela, hogar o comunidad.</p>
+  <div class="comic-intro"><strong>Cómo leerlas:</strong> cada viñeta resume una escena, una conversación y una idea clave. Al final encontrarás preguntas para pensar, no una tarea nueva. Puedes volver a ellas antes de llenar tu propuesta.</div>
+
+  <article class="comic-story dataset">
+    <div class="comic-title"><span class="emoji">🔎</span><div><span class="tag">REFUERZO · 2.º PARCIAL</span><h3>El caso del Dataset Desordenado</h3><span class="small">Tina, Byte, Don Ramiro y Dato Sucio · Datos, DataFrame, limpieza e interpretación</span></div></div>
+    <div class="comic-panels">
+      <div class="comic-panel"><span class="panel-no">1</span><h4>El encargo</h4><div class="speaker">Don Ramiro</div><div class="bubble">“Tengo tres sucursales. ¿Cuál vende más y cuál genera más dinero?”</div><p class="takeaway"><strong>Byte:</strong> primero definimos la pregunta. Antes del código debemos saber qué queremos averiguar.</p></div>
+      <div class="comic-panel"><span class="panel-no">2</span><h4>El primer vistazo</h4><div class="speaker">Tina</div><div class="bubble">“El archivo tiene 11 filas y 6 columnas, pero aparecen Centro, centro y CENTRO.”</div><p class="takeaway"><strong>Idea clave:</strong> <code>head()</code> muestra registros y <code>shape</code> informa dimensiones. Para Python, textos distintos pueden representar la misma categoría.</p></div>
+      <div class="comic-panel"><span class="panel-no">3</span><h4>Las pistas sospechosas</h4><div class="speaker">Byte</div><div class="bubble">“Hay precios guardados como texto, un valor faltante y una fila repetida.”</div><p class="takeaway"><strong>Idea clave:</strong> <code>info()</code>, <code>isnull()</code> y la revisión de duplicados ayudan a descubrir problemas antes de calcular.</p></div>
+      <div class="comic-panel"><span class="panel-no">4</span><h4>Cada columna tiene su tipo</h4><div class="speaker">Tina</div><div class="bubble">“¡El precio tiene signo de pesos y comas! Por eso Python lo interpreta como texto.”</div><p class="takeaway"><strong>Idea clave:</strong> limpiar y convertir tipos permite realizar operaciones numéricas y trabajar con fechas correctamente.</p></div>
+      <div class="comic-panel"><span class="panel-no">5</span><h4>Operación limpieza</h4><div class="speaker">Byte</div><div class="bubble">“Quitamos espacios, unificamos nombres y limpiamos símbolos. El dato faltante lo verificamos con la fuente; no lo inventamos.”</div><p class="takeaway"><strong>Idea clave:</strong> <code>strip()</code>, <code>replace()</code>, expresiones regulares y validación de la fuente. Documentar cualquier decisión.</p></div>
+      <div class="comic-panel"><span class="panel-no">6</span><h4>La pista decisiva</h4><div class="speaker">Tina</div><div class="bubble">“¡Centro vende más piezas, pero Norte genera más ingresos!”</div><p class="takeaway"><strong>Idea clave:</strong> crear <code>ingreso = precio × cantidad</code> y agrupar por sucursal. Una pregunta puede necesitar más de una medida.</p></div>
+      <div class="comic-panel"><span class="panel-no">7</span><h4>¿Qué no podemos concluir?</h4><div class="speaker">Byte</div><div class="bubble">“Solo tenemos cinco días y diez ventas. No podemos afirmar que Norte siempre gana más; ingreso tampoco es ganancia.”</div><p class="takeaway"><strong>Idea clave:</strong> una muestra pequeña limita las conclusiones. Correlación no significa causalidad.</p></div>
+      <div class="comic-panel"><span class="panel-no">8</span><h4>Detectives de datos</h4><div class="speaker">Don Ramiro</div><div class="bubble">“Ahora entiendo qué muestran mis datos y qué necesito reunir después.”</div><p class="takeaway"><strong>Ruta:</strong> pregunta → inspección → limpieza → análisis → interpretación. ¿Qué problema cercano necesita ordenar datos antes de resolverlo?</p></div>
+    </div>
+    <div class="comic-end"><strong>💡 Ideas que podrían inspirarte:</strong> organizar pedidos de una cooperativa, revisar consumos de agua, comparar tiempos de traslado, analizar inventarios, resumir encuestas anónimas o detectar registros duplicados.</div>
+    <details class="comic-quiz"><summary>🧠 Para recordar: ¿por qué no debemos rellenar un dato faltante con cualquier número?</summary><p>Porque puede modificar los cálculos y la conclusión. Primero se consulta la fuente original; si no existe, se documenta el método de tratamiento y su efecto.</p></details>
+  </article>
+
+  <article class="comic-story alerta">
+    <div class="comic-title"><span class="emoji">🚨</span><div><span class="tag">REFUERZO · 3.er PARCIAL</span><h3>El caso de la Alerta Temprana</h3><span class="small">Tina, Byte, Coordinación y Memorión · Aprendizaje supervisado, evaluación y PNL</span></div></div>
+    <div class="comic-panels">
+      <div class="comic-panel"><span class="panel-no">1</span><h4>El encargo</h4><div class="speaker">Coordinación</div><div class="bubble">“¿Podría una computadora avisar que alguien necesita apoyo antes de que sea tarde?”</div><p class="takeaway"><strong>Byte:</strong> programación tradicional usa reglas escritas; Machine Learning aprende patrones a partir de ejemplos y respuestas conocidas.</p></div>
+      <div class="comic-panel"><span class="panel-no">2</span><h4>Los datos de entrenamiento</h4><div class="speaker">Tina</div><div class="bubble">“Horas de estudio, faltas y tareas son X. La columna de resultado conocido es y.”</div><p class="takeaway"><strong>Idea clave:</strong> en aprendizaje supervisado hay ejemplos con etiqueta. Sin etiquetas y buscando grupos, sería un problema no supervisado.</p></div>
+      <div class="comic-panel"><span class="panel-no">3</span><h4>El examen sorpresa</h4><div class="speaker">Byte</div><div class="bubble">“Apartamos ejemplos que el modelo no verá durante el entrenamiento.”</div><p class="takeaway"><strong>Idea clave:</strong> separar datos de entrenamiento y prueba permite medir cómo responde ante casos nuevos.</p></div>
+      <div class="comic-panel"><span class="panel-no">4</span><h4>El modelo aprende</h4><div class="speaker">Tina</div><div class="bubble">“¿Qué hace <code>fit()</code>?”</div><p class="takeaway"><strong>Byte:</strong> entrena el modelo con X e y de entrenamiento; busca patrones que después utilizará para predecir.</p></div>
+      <div class="comic-panel"><span class="panel-no">5</span><h4>Memorión al descubierto</h4><div class="speaker">Memorión</div><div class="bubble">“¡En entrenamiento acierto todo!”</div><p class="takeaway"><strong>Byte:</strong> pero falla más con datos nuevos. Esa brecha puede indicar sobreajuste. Debemos buscar generalización, no memoria.</p></div>
+      <div class="comic-panel"><span class="panel-no">6</span><h4>No todo es exactitud</h4><div class="speaker">Coordinación</div><div class="bubble">“También importa saber a quién no detectó el modelo.”</div><p class="takeaway"><strong>Idea clave:</strong> precision, recall, F1 y matriz de confusión describen errores diferentes. La métrica adecuada depende del problema.</p></div>
+      <div class="comic-panel"><span class="panel-no">7</span><h4>El texto también habla</h4><div class="speaker">Tina</div><div class="bubble">“¿Los comentarios escritos también pueden convertirse en datos para aprender?”</div><p class="takeaway"><strong>Byte:</strong> sí: limpiar → tokenizar → vectorizar → clasificar. Las palabras se convierten en X y la categoría conocida en y. Cuidado con negaciones y sarcasmo.</p></div>
+      <div class="comic-panel"><span class="panel-no">8</span><h4>La decisión sigue siendo humana</h4><div class="speaker">Coordinación</div><div class="bubble">“El modelo puede señalar información para revisar, pero nunca etiquetar ni decidir el destino de una persona.”</div><p class="takeaway"><strong>Idea clave:</strong> ejemplos ficticios, revisión humana, privacidad, explicación de errores y límites. Una IA de apoyo no sustituye el juicio responsable.</p></div>
+    </div>
+    <div class="comic-end"><strong>💡 Ideas que podrían inspirarte:</strong> clasificar mensajes de spam, organizar solicitudes de mantenimiento, detectar temas frecuentes en comentarios ficticios, identificar categorías de productos o clasificar preguntas que recibe un asistente escolar.</div>
+    <details class="comic-quiz"><summary>🧠 Para recordar: ¿por qué no basta con obtener 100% de aciertos en los datos de entrenamiento?</summary><p>Porque el modelo podría haber memorizado los ejemplos. Debe probarse con datos separados que no haya visto y analizar sus errores, sus métricas y sus límites.</p></details>
+  </article>
+  <div class="good"><strong>Recuerda:</strong> estas historietas son reforzamiento de conocimientos vistos en clase. No son prácticas nuevas ni debes entregar código por leerlas. Su propósito es ayudarte a descubrir qué clase de problema te gustaría resolver.</div>
+</section>
+
+<section id="retos" class="card">
+  <span class="tag">PRACTICA ANTES DE PROPONER</span>
+  <h2>2. Dos retos ficticios para experimentar</h2>
+  <p class="lead">No son proyectos obligatorios ni soluciones terminadas. Son laboratorios cortos para que descubras qué datos necesitas, qué hace PNL y dónde entra Machine Learning.</p>
+</section>
+<section id="retoA" class="card challenge">
+  <span class="tag">RETO A · PNL + MACHINE LEARNING</span>
+  <h2>🏫 Aula en Orden: clasificador de reportes escolares</h2>
+  <p><strong>Situación ficticia:</strong> el plantel recibe reportes breves sobre necesidades de mantenimiento, pero cuesta organizarlos. Queremos clasificar cada reporte en una categoría: <em>agua, electricidad, limpieza o mobiliario</em>.</p>
+  <div class="grid">
+    <div class="step"><b>Entrada</b>Un texto breve: “El lavabo del pasillo gotea desde ayer”.</div>
+    <div class="step"><b>Salida esperada</b>Una categoría sugerida: “agua”. No determina urgencia ni sustituye una revisión humana.</div>
+    <div class="step"><b>Dataset</b>80 textos inventados: 20 ejemplos por categoría para probar el flujo.</div>
+    <div class="step"><b>Aprendizaje</b>Etiqueta, TF-IDF, Naive Bayes, predicción y reporte de métricas.</div>
+  </div>
+  <h3>Observa unas filas del dataset ficticio</h3>
+  <div class="tablewrap"><table><thead><tr><th>texto</th><th>etiqueta</th></tr></thead><tbody>
+  <tr><td>El lavabo del pasillo tiene una fuga.</td><td>agua</td></tr><tr><td>No sale agua de la llave del patio.</td><td>agua</td></tr><tr><td>Hay humedad junto al bebedero.</td><td>agua</td></tr><tr><td>La lámpara del salón no enciende.</td><td>electricidad</td></tr><tr><td>Se ven cables sueltos cerca del tablero.</td><td>electricidad</td></tr><tr><td>El bote de basura está lleno.</td><td>limpieza</td></tr><tr><td>Hay papeles tirados en el corredor.</td><td>limpieza</td></tr><tr><td>Una silla del aula está rota.</td><td>mobiliario</td></tr>
+  </tbody></table></div>
+  <h3>Pasos que debes comprender</h3>
+  <ol><li>Lee el problema y define las cuatro etiquetas.</li><li>Inspecciona el dataset: filas, columnas, valores vacíos y duplicados.</li><li>Separa los textos (X) de sus etiquetas (y).</li><li>Divide los datos: 80% entrenamiento y 20% prueba.</li><li>Usa TF-IDF y entrena Naive Bayes dentro de un Pipeline.</li><li>Revisa métricas; prueba una frase nueva y explica cuándo el sistema debe pedir revisión humana.</li></ol>
+  <div class="warn"><strong>Importante:</strong> 80 ejemplos sintéticos sirven para aprender el flujo, no para afirmar que el clasificador será confiable en un plantel real. Para una versión seria harán falta más ejemplos variados, etiquetas revisadas y pruebas con datos nuevos.</div>
+  <div class="codehead"><strong>Código completo para Google Colab</strong><button class="copy" data-copy="codeA">Copiar código</button></div><p class="small">Abre <a href="https://colab.research.google.com/" target="_blank" rel="noopener">Google Colab</a>, crea un cuaderno y pega el código en una celda.</p>
+  <pre id="codeA">import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.pipeline import make_pipeline
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.metrics import classification_report, confusion_matrix
+
+# Dataset FICTICIO: 20 ejemplos por categoria (80 en total)
+registros = [
+    ('El lavabo del pasillo tiene una fuga', 'agua'),
+    ('No sale agua de la llave del patio', 'agua'),
+    ('Hay humedad junto al bebedero', 'agua'),
+    ('La tuberia gotea cerca del salon', 'agua'),
+    ('El deposito de agua no se llena', 'agua'),
+    ('La llave del baño no cierra', 'agua'),
+    ('Se desperdicia agua en el lavamanos', 'agua'),
+    ('El bebedero tiene poca presion', 'agua'),
+    ('Hay una fuga debajo del fregadero', 'agua'),
+    ('El tinaco parece estar vacio', 'agua'),
+    ('El agua se acumula debajo del lavabo', 'agua'),
+    ('La manguera del patio pierde agua', 'agua'),
+    ('El grifo de la cocina escolar gotea', 'agua'),
+    ('El baño no tiene suministro de agua', 'agua'),
+    ('La tuberia del jardin esta rota', 'agua'),
+    ('El tanque de agua presenta una fuga', 'agua'),
+    ('El lavamanos no deja de gotear', 'agua'),
+    ('El bebedero tira agua por un costado', 'agua'),
+    ('La llave del laboratorio no funciona', 'agua'),
+    ('Hay un charco por una fuga de agua', 'agua'),
+    ('La lampara del salon no enciende', 'electricidad'),
+    ('El foco del pasillo esta fundido', 'electricidad'),
+    ('El contacto electrico esta flojo', 'electricidad'),
+    ('El ventilador no recibe corriente', 'electricidad'),
+    ('Se fue la luz en el laboratorio', 'electricidad'),
+    ('El interruptor no funciona', 'electricidad'),
+    ('La extension tiene un cable dañado', 'electricidad'),
+    ('El proyector no recibe energia', 'electricidad'),
+    ('Hay una luminaria parpadeando', 'electricidad'),
+    ('El apagador hace un ruido extraño', 'electricidad'),
+    ('El enchufe del aula esta suelto', 'electricidad'),
+    ('La luz del baño no prende', 'electricidad'),
+    ('El cable de alimentacion esta pelado', 'electricidad'),
+    ('El ventilador dejo de funcionar', 'electricidad'),
+    ('El contacto no tiene corriente', 'electricidad'),
+    ('La lampara del patio se apaga', 'electricidad'),
+    ('El interruptor electrico esta roto', 'electricidad'),
+    ('La iluminacion del taller no funciona', 'electricidad'),
+    ('El proyector no enciende por falta de energia', 'electricidad'),
+    ('Un foco hace destellos en el corredor', 'electricidad'),
+    ('El bote de basura esta lleno', 'limpieza'),
+    ('Hay papeles tirados en el corredor', 'limpieza'),
+    ('El patio necesita barrerse', 'limpieza'),
+    ('Quedaron envolturas en las mesas', 'limpieza'),
+    ('El salon esta sucio despues del receso', 'limpieza'),
+    ('Faltan bolsas en el contenedor', 'limpieza'),
+    ('Hay hojas secas acumuladas en la entrada', 'limpieza'),
+    ('La papelera tiene residuos fuera', 'limpieza'),
+    ('Se derramo agua y falta limpiar el piso', 'limpieza'),
+    ('El area comun necesita limpieza', 'limpieza'),
+    ('El baño requiere limpieza', 'limpieza'),
+    ('Hay basura junto a la cancha', 'limpieza'),
+    ('El pasillo esta lleno de polvo', 'limpieza'),
+    ('Las mesas tienen restos de comida', 'limpieza'),
+    ('Se acumularon residuos en el patio', 'limpieza'),
+    ('El contenedor esta desbordado', 'limpieza'),
+    ('Hay envolturas en el jardin', 'limpieza'),
+    ('El salon necesita que lo limpien', 'limpieza'),
+    ('El piso esta sucio por el lodo', 'limpieza'),
+    ('Faltan retirar los residuos del taller', 'limpieza'),
+    ('Una silla del aula esta rota', 'mobiliario'),
+    ('La mesa del laboratorio esta floja', 'mobiliario'),
+    ('Falta una pata al escritorio', 'mobiliario'),
+    ('La puerta del salon no cierra bien', 'mobiliario'),
+    ('El cajon del escritorio se atora', 'mobiliario'),
+    ('Un banco tiene el respaldo desprendido', 'mobiliario'),
+    ('La ventana no se sostiene abierta', 'mobiliario'),
+    ('El pizarron esta suelto de la pared', 'mobiliario'),
+    ('La chapa de la puerta esta dañada', 'mobiliario'),
+    ('Falta una mesa en el aula', 'mobiliario'),
+    ('La silla tiene una pata quebrada', 'mobiliario'),
+    ('El escritorio esta desnivelado', 'mobiliario'),
+    ('El banco del laboratorio esta roto', 'mobiliario'),
+    ('La puerta necesita reparar la bisagra', 'mobiliario'),
+    ('La mesa tiene una esquina desprendida', 'mobiliario'),
+    ('La ventana no puede cerrarse', 'mobiliario'),
+    ('El pizarron se mueve de su soporte', 'mobiliario'),
+    ('El cajon no abre correctamente', 'mobiliario'),
+    ('El respaldo del asiento esta flojo', 'mobiliario'),
+    ('La chapa de la entrada no gira', 'mobiliario')
+]
+
+df = pd.DataFrame(registros, columns=["texto", "etiqueta"])
+print("Filas y columnas:", df.shape)
+print("Valores vacios:\n", df.isna().sum())
+print("Ejemplos por categoria:\n", df["etiqueta"].value_counts())
+
+X = df["texto"]  # caracteristicas: textos
+y = df["etiqueta"]  # respuesta conocida: categoria
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.20, random_state=42, stratify=y
+)
+
+modelo = make_pipeline(
+    TfidfVectorizer(ngram_range=(1, 2)),
+    MultinomialNB()
+)
+modelo.fit(X_train, y_train)
+predicciones = modelo.predict(X_test)
+
+print("REPORTE DE CLASIFICACION")
+print(classification_report(y_test, predicciones, zero_division=0))
+print("MATRIZ DE CONFUSION (orden de clases):", modelo.classes_)
+print(confusion_matrix(y_test, predicciones, labels=modelo.classes_))
+
+nueva_frase = ["La llave del lavabo sigue goteando"]
+print("Nueva frase:", nueva_frase[0])
+print("Categoria sugerida:", modelo.predict(nueva_frase)[0])</pre>
+  <div class="quiz" data-answer="b"><strong>Comprueba tu comprensión:</strong> ¿qué representa la columna “etiqueta” en este ejercicio?<label><input type="radio" name="qa" value="a"> A) El texto original que escribe el visitante.</label><label><input type="radio" name="qa" value="b"> B) La categoría conocida que el modelo aprende a predecir.</label><label><input type="radio" name="qa" value="c"> C) El nombre de la biblioteca.</label><button class="checkquiz">Revisar respuesta</button><div class="feedback" aria-live="polite"></div></div>
+  <h3>Ahora experimenta tú</h3>
+  <p>Modifica la frase nueva del código. Prueba una expresión que el modelo no haya visto, por ejemplo: “La puerta del taller se atoró”. ¿La categoría fue correcta? ¿Qué palabras pudieron confundirlo?</p>
+</section>
+
+<section id="retoB" class="card challenge b">
+  <span class="tag">RETO B · PNL + SIMILITUD</span>
+  <h2>🎪 ExpoGuía: asistente de preguntas frecuentes</h2>
+  <p><strong>Situación ficticia:</strong> durante la Expo de IA, los visitantes preguntan dónde están los proyectos, a qué hora comienzan las demostraciones y qué significa PNL. El equipo crea un pequeño buscador que compara la pregunta nueva con preguntas conocidas.</p>
+  <div class="grid">
+    <div class="step"><b>Entrada</b>“¿Dónde puedo ver los robots?”</div>
+    <div class="step"><b>Base de conocimiento</b>Preguntas y respuestas verificadas por el equipo y el docente.</div>
+    <div class="step"><b>Proceso</b>TF-IDF y similitud coseno para buscar la pregunta más parecida.</div>
+    <div class="step"><b>Salida</b>La respuesta asociada; si la similitud es baja, el sistema reconoce que no sabe.</div>
+  </div>
+  <div class="callout"><strong>¿Es igual al Reto A?</strong> No. Aquí no entrenamos un clasificador con etiquetas. Recuperamos la respuesta vinculada a la pregunta más parecida. Sigue siendo PNL, pero es un buscador sencillo de FAQ.</div>
+  <h3>Código para Google Colab</h3>
+  <div class="codehead"><strong>Buscador con TF-IDF + similitud coseno</strong><button class="copy" data-copy="codeB">Copiar código</button></div><p class="small">Abre <a href="https://colab.research.google.com/" target="_blank" rel="noopener">Google Colab</a>, crea un cuaderno y pega el código en una celda.</p>
+  <pre id="codeB">from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+
+preguntas = [
+    "Donde esta el modulo de robotica",
+    "A que hora empieza la demostracion",
+    "Que es el procesamiento del lenguaje natural",
+    "Como puedo conocer los proyectos de los alumnos",
+    "Donde puedo consultar el programa de la expo",
+    "La entrada tiene algun costo",
+    "Que computadoras utilizan para inteligencia artificial",
+    "Como funciona un modelo de machine learning"
+]
+
+respuestas = [
+    "El modulo de robotica esta en la estacion 2.",
+    "Consulta el horario publicado en el programa oficial.",
+    "Es una rama de IA que permite procesar y analizar lenguaje humano.",
+    "Visita las estaciones y conversa con los equipos participantes.",
+    "El programa se encuentra en el modulo de bienvenida.",
+    "La informacion de acceso debe confirmarse con la organizacion.",
+    "Se utilizan equipos preparados segun los recursos de cada proyecto.",
+    "Aprende patrones a partir de datos para realizar predicciones."
+]
+
+vectorizador = TfidfVectorizer(ngram_range=(1, 2))
+matriz = vectorizador.fit_transform(preguntas)
+
+consulta = "Donde puedo ver los robots"
+vector_consulta = vectorizador.transform([consulta])
+similares = cosine_similarity(vector_consulta, matriz)[0]
+indice = similares.argmax()
+puntaje = similares[indice]
+
+# Umbral ilustrativo: debe probarse y ajustarse con preguntas reales
+umbral = 0.18
+if puntaje >= umbral:
+    print("Respuesta:", respuestas[indice])
+    print("Similitud:", round(float(puntaje), 3))
+else:
+    print("No tengo informacion suficiente. Consulta al equipo de bienvenida.")</pre>
+  <div class="warn"><strong>Nota:</strong> el umbral 0.18 es solo un valor inicial para experimentar, no una garantía. Cada equipo debe probar preguntas distintas y ajustar el umbral para evitar respuestas equivocadas.</div>
+  <div class="quiz" data-answer="c"><strong>Comprueba tu comprensión:</strong> ¿qué debe hacer ExpoGuía si la pregunta no se parece suficientemente a las FAQ?<label><input type="radio" name="qb" value="a"> A) Inventar una respuesta probable.</label><label><input type="radio" name="qb" value="b"> B) Elegir siempre la primera respuesta.</label><label><input type="radio" name="qb" value="c"> C) Decir que no tiene información suficiente y orientar al visitante.</label><button class="checkquiz">Revisar respuesta</button><div class="feedback" aria-live="polite"></div></div>
+  <h3>Ahora experimenta tú</h3>
+  <p>Cambia la consulta por una frase que no aparezca en la lista. Compara el resultado, agrega una pregunta equivalente y explica cómo evitarías que el asistente invente horarios o ubicaciones.</p>
+</section>
+
+<section id="recursos" class="card">
+  <span class="tag">RECURSOS EXTRAS · CONSULTA VOLUNTARIA</span>
+  <h2>3. Explora otros casos y guías para aprender</h2>
+  <p class="lead">Se retiró la lectura extensa del PDF. En su lugar encontrarás materiales web reconocidos para consultar un tema específico cuando lo necesites. No tienes que leerlos todos ni registrarte en todos los sitios: elige el que ayude a tu proyecto.</p>
+  <div class="callout"><strong>Ruta recomendada:</strong> empieza con el curso de Google para entender ML; usa scikit-learn para BoW y TF-IDF; después revisa un caso de clasificación de textos. Los recursos avanzados son opcionales.</div>
+  <div class="resource-grid">
+    <article class="resource"><span class="level">PRINCIPIANTE · ESPAÑOL</span><h3>Google: Curso intensivo de Machine Learning</h3><p>Lecciones, videos y ejercicios sobre clasificación, conjuntos de datos, generalización, sobreajuste y métricas. Consulta solo los módulos relacionados con tu proyecto.</p><a href="https://developers.google.com/machine-learning/crash-course/?hl=es" target="_blank" rel="noopener">Abrir curso de Google ↗</a></article>
+    <article class="resource"><span class="level">CONSULTA TÉCNICA · BO W / TF-IDF</span><h3>scikit-learn: extracción de características de texto</h3><p>Explica cómo convertir palabras en vectores, la representación Bag of Words, CountVectorizer y TF-IDF. Es una referencia para comprender el paso de texto a números.</p><a href="https://scikit-learn.org/stable/modules/feature_extraction.html" target="_blank" rel="noopener">Consultar documentación ↗</a></article>
+    <article class="resource"><span class="level">CASO PRÁCTICO · CLASIFICACIÓN</span><h3>TensorFlow: clasificación básica de textos</h3><p>Ejemplo de análisis de sentimientos con reseñas de películas (IMDB). Muestra preparación, tokenización, vectorización y entrenamiento; permite abrir el cuaderno en Google Colab. Está en inglés, puedes utilizar la traducción del navegador.</p><a href="https://www.tensorflow.org/tutorials/keras/text_classification" target="_blank" rel="noopener">Ver tutorial y Colab ↗</a></article>
+    <article class="resource"><span class="level">DATASET REAL · TEXTO ETIQUETADO</span><h3>UCI: SMS Spam Collection</h3><p>Conjunto público de 5,574 mensajes etiquetados como spam o mensaje legítimo. Sirve para estudiar clasificación binaria, balance de clases y errores. Los mensajes están en inglés; revisa su descripción y condiciones antes de reutilizarlos.</p><a href="https://archive.ics.uci.edu/dataset/228/sms+spam+collection" target="_blank" rel="noopener">Consultar dataset UCI ↗</a></article>
+    <article class="resource"><span class="level">LECTURA DE PNL · REFERENCIA</span><h3>NLTK Book: procesamiento del lenguaje con Python</h3><p>Libro gratuito en línea. Los capítulos sobre procesamiento de texto, etiquetado de palabras y clasificación ayudan a profundizar. Está en inglés y es más técnico; úsalo como consulta, no como lectura obligatoria.</p><a href="https://www.nltk.org/book/" target="_blank" rel="noopener">Abrir libro NLTK ↗</a></article>
+    <article class="resource"><span class="level">NIVEL INTERMEDIO · AVANZADO</span><h3>Hugging Face: curso de NLP y modelos Transformer</h3><p>Introduce tareas de PNL y modelos modernos, como clasificación, traducción, resumen y preguntas-respuestas. Es gratuito, pero más avanzado y principalmente en inglés; déjalo para cuando domines el flujo básico.</p><a href="https://huggingface.co/learn/nlp-course/chapter1/1" target="_blank" rel="noopener">Explorar curso Hugging Face ↗</a></article>
+    <article class="resource"><span class="level">CASO DE INSPIRACIÓN · OPCIONAL</span><h3>Kaggle: Natural Language Processing with Disaster Tweets</h3><p>Reto de clasificación de mensajes: distinguir publicaciones que describen desastres reales de las que usan palabras similares en otro sentido. Es útil para ver ambigüedad del lenguaje y evaluación F1. Requiere revisar reglas de la plataforma; puede contener lenguaje ofensivo, por lo que no es una primera práctica obligatoria.</p><a href="https://www.kaggle.com/c/nlp-getting-started/" target="_blank" rel="noopener">Ver caso de Kaggle ↗</a></article>
+  </div>
+  <div class="warn"><strong>Uso responsable:</strong> estos enlaces son recursos externos; sus sitios pueden cambiar, pedir cuenta o actualizar sus condiciones. No subas datos personales, expedientes, calificaciones, voces ni fotografías de compañeros. Para tu prototipo, comienza con información ficticia o autorizada.</div>
+</section>
+
+<section id="formulario" class="card">
+  <span class="tag">ENTREGA INICIAL · MIÉRCOLES 11 DE NOVIEMBRE DE 2026</span>
+  <h2>4. Mi propuesta de proyecto para revisión</h2>
+  <p class="lead">Completa la ficha después de probar los ejemplos. Puedes trabajar individualmente o en pareja. El miércoles 11 de noviembre presentarás una propuesta inicial clara. No necesitas entregar el proyecto terminado.</p>
+  <div class="warn">No escribas CURP, teléfonos, domicilios, diagnósticos, contraseñas ni datos identificables de terceros. Si necesitas probar un proyecto con datos, comienza con datos ficticios, públicos autorizados o registros anónimos aprobados por el docente.</div>
+  <form id="projectForm" onsubmit="return false">
+  <div class="fields">
+    <div class="field"><label for="mode">Modalidad</label><select id="mode"><option value="Individual">Individual</option><option value="En pareja">En pareja</option></select></div>
+    <div class="field"><label for="group">Grupo / semestre</label><input id="group" placeholder="Ej. 3.º semestre, grupo ___"></div>
+    <div class="field"><label for="student1">Nombre completo · integrante 1</label><input id="student1" autocomplete="name" placeholder="Nombre(s) y apellidos"></div>
+    <div class="field" id="student2wrap"><label for="student2">Nombre completo · integrante 2</label><input id="student2" placeholder="Nombre(s) y apellidos"></div>
+    <div class="field full"><label for="title">Título provisional del proyecto</label><input id="title" placeholder="Ej. ExpoGuía: asistente de preguntas frecuentes"></div>
+    <div class="field"><label for="area">Ámbito</label><select id="area"><option value="">Selecciona</option><option>Escuela</option><option>Comunidad / Tlaxcala</option><option>Hogar</option><option>Negocio local</option><option>Ambiente</option><option>Cultura / turismo</option><option>Otro</option></select></div>
+    <div class="field"><label for="tech">Área tecnológica que imaginas</label><select id="tech"><option value="">Aún no sé</option><option>Datos / análisis con pandas</option><option>Machine Learning con datos tabulares</option><option>PNL: clasificación de textos</option><option>PNL: buscador / chatbot FAQ</option><option>Reconocimiento o síntesis de voz</option><option>Visión artificial / imágenes</option><option>Automatización tradicional con Python</option><option>Aplicación web que integra varias técnicas</option></select></div>
+    <div class="field full"><label for="problem">1. ¿Qué problema concreto quieres resolver?</label><textarea id="problem" maxlength="500" placeholder="Describe una situación observada, no la solución todavía."></textarea></div>
+    <div class="field"><label for="benefit">2. ¿A quién beneficia?</label><input id="benefit" placeholder="Ej. visitantes de la Expo"></div>
+    <div class="field"><label for="current">3. ¿Cómo se resuelve hoy y qué dificultad tiene?</label><input id="current" placeholder="Ej. se pregunta al personal de bienvenida"></div>
+    <div class="field"><label for="dataSource">4. ¿De dónde saldrán los datos?</label><select id="dataSource"><option value="">Selecciona</option><option>Datos ficticios creados por el equipo</option><option>Datos públicos con permiso/licencia clara</option><option>Registros propios sin identificar personas</option><option>Archivo del plantel con autorización docente</option><option>Datos personales identificables</option><option>Datos sensibles (salud, biometría, etc.)</option><option>Aún no lo sé</option></select></div>
+    <div class="field"><label for="dataSize">5. ¿Cuántos registros, imágenes o audios estimas?</label><input id="dataSize" placeholder="Ej. 40 textos ficticios; 100 imágenes autorizadas"></div>
+    <div class="field full"><label for="dataFields">6. ¿Qué datos o columnas necesitas?</label><textarea id="dataFields" placeholder="Ej. texto_del_reporte, categoria; o pregunta, respuesta"></textarea></div>
+    <div class="field"><label for="inputType">7. ¿Qué recibirá el sistema?</label><select id="inputType"><option value="">Selecciona</option><option>Texto</option><option>Números / tabla</option><option>Imagen</option><option>Audio / voz</option><option>Video</option><option>Varios tipos</option></select></div>
+    <div class="field"><label for="outputType">8. ¿Qué resultado entregará?</label><select id="outputType"><option value="">Selecciona</option><option>Una categoría / clasificación</option><option>Un número / estimación</option><option>Un grupo o patrón</option><option>Una respuesta o recomendación informativa</option><option>Texto o audio generado</option><option>Un reporte / gráfica</option><option>Una alerta revisada por una persona</option></select></div>
+    <div class="field full"><label for="goal">9. Escribe tu objetivo en una frase: “Desarrollar un prototipo que… para…”</label><textarea id="goal" maxlength="500" placeholder="Desarrollar un prototipo que clasifique reportes de mantenimiento para ayudar a organizar su canalización."></textarea></div>
+    <div class="field full"><label for="method">10. ¿Qué práctica del parcial te gustaría reutilizar?</label><textarea id="method" placeholder="Ej. DataFrame, limpieza, regex, tokens, stopwords, TF-IDF, similitud coseno, clasificación, métricas, etc."></textarea></div>
+    <div class="field full"><label for="pseudocode">11. Describe 3 a 5 pasos de tu solución (pseudocódigo en español)</label><textarea id="pseudocode" placeholder="1. Recibir el dato.&#10;2. Revisar y limpiar.&#10;3. Analizar o clasificar.&#10;4. Mostrar resultado.&#10;5. Pedir revisión si no hay confianza."></textarea></div>
+    <div class="field"><label for="test">12. ¿Cómo demostrarás que funciona?</label><textarea id="test" placeholder="Ej. probar 10 preguntas nuevas y registrar respuestas correctas/incorrectas."></textarea></div>
+    <div class="field"><label for="limit">13. ¿Qué NO podrá concluir o hacer?</label><textarea id="limit" placeholder="Ej. no diagnostica, no identifica personas ni garantiza que toda respuesta sea correcta."></textarea></div>
+    <div class="field"><label for="risk">14. ¿Qué podría salir mal?</label><textarea id="risk" placeholder="Ej. textos ambiguos, datos insuficientes, ruido en el micrófono."></textarea></div>
+    <div class="field"><label for="resources">15. ¿Qué recursos necesita?</label><select id="resources"><option value="">Selecciona</option><option>PC + Python + CSV; recursos ligeros</option><option>PC + internet / Google Colab</option><option>Micrófono y bocinas</option><option>Cámara / iluminación</option><option>GPU o RAM adicional (por confirmar)</option><option>API o servicio externo con cuota</option><option>Aún no lo sé</option></select></div>
+    <div class="field"><label for="scope">16. ¿Qué versión mínima puedes terminar antes de la Expo?</label><select id="scope"><option value="">Selecciona</option><option>Una función pequeña que ya puedo probar</option><option>Un prototipo sencillo con datos ficticios</option><option>Una demo que integra varios módulos</option><option>Una aplicación completa con muchas funciones</option><option>Aún no puedo delimitarla</option></select></div>
+    <div class="field"><label for="timeline">17. ¿En qué fecha enviarás tu siguiente avance por Classroom?</label><select id="timeline"><option value="">Selecciona</option><option>Lunes 16 de noviembre</option><option>Martes 17 de noviembre</option><option>Lunes 23 de noviembre</option><option>Martes 24 de noviembre</option><option>Lunes 30 de noviembre</option><option>Martes 1 de diciembre</option><option>Aún no lo sé</option></select><p class="hint">Los avances se entregan por Classroom los lunes o martes. El trabajo y asesoría en clase se realizan miércoles, jueves y viernes.</p></div>
+  </div>
+  <div class="sep"></div>
+  <h3>Revisión de privacidad y seguridad</h3>
+  <div class="field"><label for="consent">¿Tienes autorización para utilizar esos datos, imágenes o audios?</label><select id="consent"><option value="">Selecciona</option><option>Son ficticios o públicos y su uso está permitido</option><option>Sí, tengo autorización y los anonimizaré cuando corresponda</option><option>No tengo autorización</option><option>No aplica / no usaré datos de personas</option><option>No lo sé</option></select></div>
+  <div class="field"><label for="impact">¿Tu sistema tomaría decisiones sobre salud, seguridad, acceso, sanciones, calificaciones o identificación de personas?</label><select id="impact"><option value="">Selecciona</option><option>No</option><option>Sí</option><option>No estoy seguro</option></select><p class="hint">Un proyecto escolar debe evitar diagnosticar, vigilar, identificar o decidir consecuencias sobre personas. Reformula para ofrecer información general o apoyo bajo revisión humana.</p></div>
+  <div class="field"><label for="hardware">¿Ya sabes que el equipo y los dispositivos necesarios estarán disponibles?</label><select id="hardware"><option value="">Selecciona</option><option>Sí, ya se probó en una PC</option><option>Solo necesita navegador / Colab e internet</option><option>No, depende del diagnóstico de computadoras</option><option>Necesita periféricos o GPU que aún no se confirman</option></select></div>
+  <div class="actions no-print"><button class="primary" id="evaluate" type="button">Evaluar mi propuesta con semáforo</button><button type="reset" id="clear">Limpiar formulario</button></div>
+  </form>
+  <div id="evaluation" class="result" aria-live="polite"><strong>Tu semáforo aparecerá aquí.</strong><p class="small">Completa la ficha y presiona “Evaluar mi propuesta”. La evaluación es orientativa.</p></div>
+  <div class="actions no-print hidden" id="reportActions"><button class="primary" id="printBtn">🖨️ Imprimir ficha / Guardar como PDF</button><button id="downloadBtn">Descargar respaldo JSON</button><button id="copyBtn">Copiar resumen</button></div>
+</section>
+
+<section id="fechas" class="card">
+  <span class="tag">PLAN DE TRABAJO SUGERIDO · FECHAS TENTATIVAS</span>
+  <h2>5. Organización del trabajo rumbo a la Expo</h2>
+  <p class="lead">Las sesiones de clase y asesoría se realizan los miércoles, jueves y viernes. Los avances y evidencias se envían por Google Classroom los lunes y martes. Las fechas son tentativas y pueden ajustarse por indicación docente o de la organización escolar.</p>
+  <div class="callout"><strong>Regla de seguimiento:</strong> en clase se explica, construye, prueba y recibe orientación; en lunes o martes se envía por Classroom el avance solicitado, con evidencia breve y una nota sobre las dificultades encontradas.</div>
+  <div class="schedule">
+    <div class="schedule-row"><div class="schedule-date">Viernes 6 de noviembre</div><div><strong>Inicio y exploración</strong><p>Publicación de la app. Revisar las historietas de reforzamiento, explorar los dos retos ficticios y comenzar a pensar en un problema propio.</p></div></div>
+    <div class="schedule-row"><div class="schedule-date">Lunes 9 – martes 10</div><div><strong>Primer envío por Classroom</strong><p>Compartir una idea inicial, responder las preguntas principales y anotar dudas para la entrevista. Todavía puede cambiarse la idea.</p></div></div>
+    <div class="schedule-row"><div class="schedule-date">Miércoles 11</div><div><strong>Entrevista y revisión inicial</strong><p>Presentar nombres, problema, beneficiarios y objetivo provisional. Recibir observaciones del docente.</p></div></div>
+    <div class="schedule-row"><div class="schedule-date">Jueves 12 – viernes 13</div><div><strong>Ajuste y delimitación</strong><p>Precisar el objetivo, entradas, salidas, datos necesarios, alcance mínimo y cómo se comprobará el resultado.</p></div></div>
+    <div class="schedule-row"><div class="schedule-date">Lunes 16 – martes 17</div><div><strong>Avance 1 por Classroom</strong><p>Enviar ficha ajustada, fuente o plan de datos, campos del dataset y pseudocódigo de 3 a 5 pasos. Señalar qué falta confirmar.</p></div></div>
+    <div class="schedule-row"><div class="schedule-date">Miércoles 18 – viernes 20</div><div><strong>Preparación de datos y primer componente</strong><p>Crear o limpiar datos ficticios/autorizados, preparar el entorno disponible y construir la primera parte funcional del prototipo.</p></div></div>
+    <div class="schedule-row"><div class="schedule-date">Lunes 23 – martes 24</div><div><strong>Avance 2 por Classroom</strong><p>Enviar captura o enlace del cuaderno, código parcial, ejemplos de prueba y una breve bitácora de errores o dudas.</p></div></div>
+    <div class="schedule-row"><div class="schedule-date">Miércoles 25 – viernes 27</div><div><strong>Integración y evaluación</strong><p>Conectar componentes, realizar pruebas con datos nuevos, revisar métricas o resultados y corregir fallas.</p></div></div>
+    <div class="schedule-row"><div class="schedule-date">Lunes 30 nov. – martes 1 dic.</div><div><strong>Avance 3 por Classroom</strong><p>Enviar evidencia del prototipo, resultados, limitaciones, recursos que requiere la demostración y borrador de explicación para visitantes.</p></div></div>
+    <div class="schedule-row"><div class="schedule-date">Miércoles 2 de diciembre</div><div><strong>Ensayo general</strong><p>Probar la demostración de principio a fin, revisar equipo, audio, conexión, archivos de respaldo y distribución de participación.</p></div></div>
+    <div class="schedule-row"><div class="schedule-date">Jueves 3 o viernes 4</div><div><strong>Expo de Inteligencia Artificial · un solo día</strong><p>La fecha definitiva y el horario serán confirmados por el plantel. Se realizará únicamente en uno de estos dos días.</p></div></div>
+  </div>
+  <div class="good"><strong>En cada envío de Classroom:</strong> incluye nombre(s), nombre del proyecto, número de avance, evidencia y una explicación breve de qué hiciste, qué funcionó y qué necesitas resolver después.</div>
+</section>
+
+<section id="printSheet" class="card print-sheet print-only" aria-live="polite">
+  <h1>Ficha de propuesta · Proyecto de Inteligencia Artificial</h1>
+  <p>Expo de IA · Diciembre de 2026 · CECyTE</p>
+  <div id="printContent"></div>
+  <div class="teacherbox"><strong>ESPACIO DE REVISIÓN DOCENTE</strong><p>☐ Visto bueno para planificación &nbsp; ☐ Requiere ajustes &nbsp; ☐ No viable en esta versión</p><p>Observaciones:</p><br><br><p>Firma / fecha: ______________________________________________</p></div>
+  <p class="small">El semáforo es una orientación automática por reglas; la decisión final corresponde al docente.</p>
+</section>
+</main>
+<div class="foot">Material didáctico de preparación · M2S1 y M2S2 · Versión revisada: historietas de reforzamiento, retos ficticios y recursos extras. Funciona localmente en el navegador y no envía formularios a un servidor.</div>
+<script>
+const $=id=>document.getElementById(id);
+const fields=['mode','group','student1','student2','title','area','tech','problem','benefit','current','dataSource','dataSize','dataFields','inputType','outputType','goal','method','pseudocode','test','limit','risk','resources','scope','timeline','consent','impact','hardware'];
+let lastReport=null;
+function val(id){return $(id).value.trim()}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function updateMode(){$('student2wrap').classList.toggle('hidden',val('mode')!=='En pareja')}
+$('mode').addEventListener('change',updateMode);updateMode();
+const safeMethods=['PNL: clasificación de textos','PNL: buscador / chatbot FAQ','Machine Learning con datos tabulares','Datos / análisis con pandas','Automatización tradicional con Python'];
+function evaluate(){
+ const d={};fields.forEach(k=>d[k]=val(k));
+ const missing=[];
+ const required=['student1','title','area','tech','problem','benefit','current','dataSource','dataFields','inputType','outputType','goal','method','pseudocode','test','limit','risk','resources','scope','timeline','consent','impact','hardware'];
+ required.forEach(k=>{if(!d[k])missing.push(k)});
+ if(d.mode==='En pareja'&&!d.student2)missing.push('student2');
+ if(d.student1&&d.student1.split(/\s+/).length<2)missing.push('student1');
+ if(d.mode==='En pareja'&&d.student2&&d.student2.split(/\s+/).length<2)missing.push('student2');
+ const flags=[];
+ if(d.dataSource==='Datos personales identificables' || d.dataSource==='Datos sensibles (salud, biometría, etc.)')flags.push('El conjunto de datos puede incluir información personal o sensible: cambia a datos ficticios, públicos autorizados o anónimos y solicita revisión docente antes de usarlo.');
+ if(d.consent==='No tengo autorización')flags.push('No hay autorización para los datos, imágenes o audios. No los uses; consigue autorización o sustitúyelos por datos ficticios.');
+ if(d.impact==='Sí')flags.push('El sistema tomaría decisiones de alto impacto o identificaría personas. Rediseña el alcance para que sea informativo y requiera revisión humana.');
+ if(d.impact==='No estoy seguro')flags.push('No está claro si el sistema afectará decisiones sobre personas. Delimita su función antes de avanzar.');
+ if(d.scope==='Una aplicación completa con muchas funciones')flags.push('El alcance parece demasiado grande para el tiempo disponible. Define una sola función mínima que puedas demostrar.');
+ if(d.dataSource==='Aún no lo sé')flags.push('Todavía no existe una fuente de datos definida. Antes de programar, define un conjunto ficticio, autorizado o público.');
+ if(d.resources==='API o servicio externo con cuota')flags.push('El proyecto dependería de un servicio con cuota. Prepara una alternativa gratuita/local y no comprometas cuentas ni pagos.');
+ if(d.hardware==='Necesita periféricos o GPU que aún no se confirman')flags.push('El hardware requerido todavía no está confirmado. Diseña una versión alternativa que funcione con los recursos disponibles.');
+ let status='green',statusTitle='VERDE · Propuesta preliminar encaminada',desc='La idea parece acotada y puede pasar a revisión docente. Esto todavía NO es autorización para instalar o desarrollar.';
+ if(flags.some(x=>/No hay autorización|alto impacto|información personal o sensible/.test(x))){status='red';statusTitle='ROJO · Detener y reformular';desc='Hay un riesgo de privacidad, autorización o impacto sobre personas. No recopiles datos ni desarrolles esa función en esta forma.'}
+ else if(missing.length||flags.length||d.hardware!=='Sí, ya se probó en una PC'||d.dataSource==='Aún no lo sé'||d.consent==='No lo sé'||d.impact==='No estoy seguro'){
+   status='yellow';statusTitle='AMARILLO · Requiere completar o ajustar';desc='La idea puede continuar en planificación, pero hay información, recursos o decisiones de seguridad que deben aclararse con el docente.';
+ }
+ const suggestions=[];
+ if(d.tech.includes('PNL')||d.inputType==='Texto')suggestions.push('Empieza con limpieza del texto y TF-IDF; prueba clasificación o similitud según el resultado que necesitas.');
+ if(d.tech.includes('Machine Learning')||d.inputType==='Números / tabla')suggestions.push('Define claramente X (características) e y (respuesta); revisa si tienes ejemplos etiquetados antes de elegir aprendizaje supervisado.');
+ if(d.tech.includes('voz')||d.inputType==='Audio / voz')suggestions.push('Separa reconocimiento de voz (audio a texto) de síntesis de voz (texto a audio); valida micrófono, bocinas y permiso de uso de grabaciones.');
+ if(d.tech.includes('Visión')||d.inputType==='Imagen'||d.inputType==='Video')suggestions.push('Comienza con un conjunto pequeño de imágenes autorizadas y categorías claras; evalúa con imágenes nuevas.');
+ if(d.tech.includes('Automatización'))suggestions.push('Comprueba primero si reglas y Python resuelven el problema sin ML: usar IA no es obligatorio.');
+ if(!suggestions.length)suggestions.push('Aterriza la técnica después de definir entradas, salida esperada y fuente de datos. No elijas una biblioteca solo por popularidad.');
+ if(d.dataSize) suggestions.push('Cantidad de datos declarada: '+d.dataSize+'. No existe un mínimo universal; la cantidad y diversidad necesarias dependen de las clases, el tipo de dato y la meta.');
+ if(d.resources==='Aún no lo sé'||d.hardware!=='Sí, ya se probó en una PC')suggestions.push('No instales todavía. Espera el diagnóstico de las estaciones y confirma una alternativa ligera.');
+ const missingNames=missing.map(k=>({student1:'nombre completo',student2:'nombre del segundo integrante',title:'título provisional',problem:'problema',benefit:'beneficiario',dataSource:'fuente de datos',inputType:'tipo de entrada',outputType:'resultado esperado',goal:'objetivo',test:'prueba de funcionamiento',scope:'alcance mínimo',consent:'autorización de datos',impact:'impacto sobre personas',hardware:'disponibilidad de recursos'})[k]||k);
+ lastReport={...d,status,statusTitle,desc,flags,suggestions,missingNames,created:new Date().toLocaleString('es-MX')};
+ renderEvaluation(lastReport);
+}
+function renderEvaluation(r){
+ const badge=`<span class="status ${r.status}">${esc(r.statusTitle)}</span>`;
+ let h=badge+`<p>${esc(r.desc)}</p>`;
+ if(r.missingNames.length)h+=`<div class="warn"><strong>Falta completar:</strong> ${r.missingNames.map(esc).join(', ')}.</div>`;
+ if(r.flags.length)h+=`<div class="${r.status==='red'?'danger':'warn'}"><strong>Observaciones:</strong><ul>${r.flags.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`;
+ h+=`<strong>Orientación técnica inicial:</strong><ul>${r.suggestions.map(x=>`<li>${esc(x)}</li>`).join('')}</ul><p class="small">Evaluado localmente por reglas de completitud y riesgo. No consulta un modelo de IA, no verifica la verdad de los datos y no reemplaza el visto bueno docente.</p>`;
+ $('evaluation').innerHTML=h;$('reportActions').classList.remove('hidden');
+ const names=r.mode==='En pareja'?[r.student1,r.student2].filter(Boolean).join(' / '):r.student1;
+ let p=`<h2>${esc(r.title)}</h2><p><strong>Fecha de captura:</strong> ${esc(r.created)}</p><p><strong>Modalidad:</strong> ${esc(r.mode)} · <strong>Grupo:</strong> ${esc(r.group||'No indicado')}</p><p><strong>Integrante(s):</strong> ${esc(names||'No indicado')}</p><p><strong>Proyecto:</strong> ${esc(r.title)}</p><p><strong>Ámbito:</strong> ${esc(r.area||'No indicado')} · <strong>Área tecnológica:</strong> ${esc(r.tech||'Por definir')}</p><h3>Problema y propósito</h3><p><strong>Problema:</strong> ${esc(r.problem||'—')}</p><p><strong>Beneficiario:</strong> ${esc(r.benefit||'—')}</p><p><strong>Solución actual/dificultad:</strong> ${esc(r.current||'—')}</p><p><strong>Objetivo:</strong> ${esc(r.goal||'—')}</p><h3>Datos y funcionamiento</h3><p><strong>Fuente:</strong> ${esc(r.dataSource||'—')} · <strong>Cantidad estimada:</strong> ${esc(r.dataSize||'No definida')}</p><p><strong>Campos:</strong> ${esc(r.dataFields||'—')}</p><p><strong>Entrada:</strong> ${esc(r.inputType||'—')} · <strong>Salida:</strong> ${esc(r.outputType||'—')}</p><p><strong>Prácticas que reutiliza:</strong> ${esc(r.method||'—')}</p><p><strong>Pseudocódigo:</strong><br>${esc(r.pseudocode||'—').replace(/\n/g,'<br>')}</p><h3>Validación y límites</h3><p><strong>Prueba:</strong> ${esc(r.test||'—')}</p><p><strong>Qué no hará/concluirá:</strong> ${esc(r.limit||'—')}</p><p><strong>Riesgo identificado:</strong> ${esc(r.risk||'—')}</p><p><strong>Recursos:</strong> ${esc(r.resources||'—')} · <strong>Equipo:</strong> ${esc(r.hardware||'—')}</p><p><strong>Alcance mínimo:</strong> ${esc(r.scope||'—')} · <strong>Primer avance:</strong> ${esc(r.timeline||'—')}</p><p><strong>Autorización/datos:</strong> ${esc(r.consent||'—')} · <strong>Impacto:</strong> ${esc(r.impact||'—')}</p><h3>Semáforo orientativo</h3>${badge}<p>${esc(r.desc)}</p>${r.flags.length?'<ul>'+r.flags.map(x=>`<li>${esc(x)}</li>`).join('')+'</ul>':''}<p><strong>Recomendaciones:</strong></p><ul>${r.suggestions.map(x=>`<li>${esc(x)}</li>`).join('')}</ul><p class="small">La evaluación automática es orientativa; la aprobación final corresponde al docente.</p>`;
+ $('printContent').innerHTML=p;
+}
+$('evaluate').addEventListener('click',evaluate);
+$('clear').addEventListener('click',()=>{setTimeout(()=>{$('evaluation').innerHTML='<strong>Formulario limpio.</strong><p class="small">Completa la ficha y vuelve a evaluar.</p>';$('reportActions').classList.add('hidden');$('printContent').innerHTML='';lastReport=null;updateMode()},0)});
+$('printBtn').addEventListener('click',()=>{if(!lastReport)evaluate();window.print()});
+$('downloadBtn').addEventListener('click',()=>{if(!lastReport)evaluate();const blob=new Blob([JSON.stringify(lastReport,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='propuesta_proyecto_IA_'+new Date().toISOString().slice(0,10)+'.json';a.click();URL.revokeObjectURL(a.href)});
+$('copyBtn').addEventListener('click',async()=>{if(!lastReport)evaluate();const text=$('printContent').innerText;try{await navigator.clipboard.writeText(text);$('copyBtn').textContent='Copiado';setTimeout(()=>$('copyBtn').textContent='Copiar resumen',1500)}catch(e){alert('No se pudo copiar automáticamente. Usa Imprimir o Descargar JSON.')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{const s=$(b.dataset.copy).textContent;try{await navigator.clipboard.writeText(s);b.textContent='Copiado';setTimeout(()=>b.textContent='Copiar código',1300)}catch(e){const r=document.createRange();r.selectNodeContents($(b.dataset.copy));const sel=getSelection();sel.removeAllRanges();sel.addRange(r);b.textContent='Selecciona y copia'}}));
+document.querySelectorAll('.checkquiz').forEach(b=>b.addEventListener('click',()=>{const q=b.closest('.quiz'),answer=q.dataset.answer,chosen=q.querySelector('input:checked'),f=q.querySelector('.feedback');if(!chosen){f.textContent='Elige una respuesta primero.';f.style.color='#9b6500';return}const ok=chosen.value===answer;f.textContent=ok?'¡Correcto! Explica con tus palabras por qué.':'Inténtalo otra vez. Regresa a la explicación y busca la diferencia.';f.style.color=ok?'#147447':'#ad2638'}));
+</script>
+</body>
+</html>
