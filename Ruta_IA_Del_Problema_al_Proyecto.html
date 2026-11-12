@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Guía didáctica para convertir un problema en un proyecto de IA con datos, algoritmos, Python y una demostración visual.">
+<title>Ruta IA | Del problema al proyecto</title>
+<style>
+:root{--ink:#172334;--muted:#617083;--paper:#f5f7fb;--card:#fff;--line:#dce4ed;--navy:#12283f;--blue:#2563eb;--teal:#0f766e;--gold:#b45309;--purple:#6d28d9;--softblue:#eff6ff;--softteal:#ecfdf5;--softgold:#fffbeb;--softpurple:#f5f3ff;--shadow:0 12px 34px rgba(17,38,61,.08)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.58 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}a{color:#1d4ed8;text-decoration:none}a:hover{text-decoration:underline}.wrap{max-width:1160px;margin:auto;padding:0 22px}.top{background:linear-gradient(120deg,#10283f,#164e63 65%,#155e75);color:#fff;padding:42px 0 34px}.eyebrow{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:#b9e3ed;font-weight:800}.top h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.06;margin:10px 0 14px;max-width:850px}.top p{font-size:1.08rem;color:#e1eef4;max-width:820px;margin:0}.chips{display:flex;gap:9px;flex-wrap:wrap;margin-top:22px}.chip{border:1px solid #ffffff55;border-radius:999px;padding:5px 11px;font-size:.82rem;color:#f1f7fa}.nav{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:5;box-shadow:0 3px 12px #10283f0c}.nav .wrap{display:flex;gap:8px;overflow:auto;padding-top:10px;padding-bottom:10px}.nav a{white-space:nowrap;padding:7px 11px;border-radius:9px;color:#34465a;font-size:.9rem;font-weight:650}.nav a:hover{background:#edf4fa;text-decoration:none}.section{padding:37px 0}.section h2{font-size:1.75rem;line-height:1.2;margin:0 0 8px;color:#132c45}.intro{color:var(--muted);max-width:850px;margin:0 0 22px}.grid{display:grid;gap:16px}.g2{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.card{background:var(--card);border:1px solid var(--line);border-radius:17px;padding:20px;box-shadow:var(--shadow)}.card h3{margin:0 0 8px;font-size:1.12rem}.card p:last-child{margin-bottom:0}.tag{display:inline-block;border-radius:999px;padding:3px 9px;font-size:.75rem;font-weight:800;letter-spacing:.02em}.blue{background:var(--softblue);color:#1d4ed8}.teal{background:var(--softteal);color:#047857}.gold{background:var(--softgold);color:#92400e}.purple{background:var(--softpurple);color:#6d28d9}.muted{color:var(--muted)}.callout{border-left:4px solid var(--blue);background:var(--softblue);padding:14px 17px;border-radius:0 12px 12px 0;margin:17px 0}.callout.warning{border-color:#d97706;background:var(--softgold)}.callout.good{border-color:#0f766e;background:var(--softteal)}.formula{background:#10283f;color:#fff;padding:18px 20px;border-radius:14px;font-weight:650}.formula small{display:block;color:#bfd2df;font-weight:500;margin-bottom:6px}.beforeafter{display:grid;grid-template-columns:1fr 36px 1fr;gap:10px;align-items:center}.arrow{text-align:center;font-size:1.7rem;color:#64748b}.example{border:1px dashed #b8c7d8;background:#fbfdff;border-radius:12px;padding:14px}.example strong{display:block;margin-bottom:5px}.stepnum{width:32px;height:32px;border-radius:10px;background:#e0efff;color:#1d4ed8;font-weight:850;display:grid;place-items:center;flex:0 0 auto}.step{display:flex;gap:12px;align-items:flex-start}.step+.step{margin-top:14px}.decision{display:grid;grid-template-columns:1fr 1fr;gap:12px}.decision label{display:block;font-weight:700;margin-bottom:6px}.decision select,.decision input{width:100%;padding:11px 12px;border:1px solid #cbd5e1;border-radius:10px;background:#fff;color:var(--ink);font:inherit}.btn{border:0;border-radius:10px;background:var(--blue);color:white;font-weight:750;padding:11px 16px;cursor:pointer;font:inherit}.btn:hover{filter:brightness(.95)}.btn.secondary{background:#e8eef5;color:#1e344a}.result{margin-top:15px;background:#f8fafc;border:1px solid var(--line);border-radius:13px;padding:16px;min-height:90px}.result h3{margin:0 0 6px}.tablewrap{overflow:auto;border:1px solid var(--line);border-radius:13px;background:#fff}table{border-collapse:collapse;width:100%;min-width:690px}th,td{padding:12px 13px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}th{background:#edf3f8;color:#20354b;font-size:.88rem}tr:last-child td{border-bottom:0}code,pre{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}code{background:#edf2f7;border-radius:5px;padding:2px 5px;font-size:.9em}pre{white-space:pre-wrap;overflow:auto;background:#10283f;color:#e4f2f7;border-radius:13px;padding:17px;font-size:.88rem;line-height:1.5}.cols{columns:2;column-gap:28px}.cols li{break-inside:avoid;margin-bottom:7px}.mini{font-size:.9rem}.dataset{font-family:ui-monospace,monospace;font-size:.82rem;white-space:nowrap}.pillrow{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}.pill{padding:5px 9px;border-radius:8px;background:#edf2f7;font-size:.8rem;font-weight:650}.mock{background:#fff;border:1px solid #cbd5e1;border-radius:15px;overflow:hidden;box-shadow:var(--shadow)}.mockhead{background:#eaf1f7;padding:12px 15px;font-weight:800}.mockbody{padding:17px}.mockinput{padding:12px;border:1px solid #cbd5e1;border-radius:9px;color:#64748b;margin:8px 0}.mockbutton{display:inline-block;background:#1d4ed8;color:white;padding:9px 13px;border-radius:9px;font-size:.9rem;font-weight:750;margin:5px 0}.mockout{background:#ecfdf5;border:1px solid #a7f3d0;border-radius:10px;padding:12px;margin-top:10px}.footer{background:#10283f;color:#dceaf1;padding:28px 0;margin-top:20px}.footer a{color:#a9dded}.smallnote{font-size:.84rem;color:var(--muted)}.checklist{list-style:none;padding:0}.checklist li{padding:8px 0;border-bottom:1px solid #edf1f5}.checklist li:before{content:'□';font-size:1.1rem;color:#2563eb;margin-right:10px}.ref-list li{margin:8px 0}.hidden{display:none!important}
+@media(max-width:850px){.g3{grid-template-columns:1fr 1fr}.g2{grid-template-columns:1fr}.cols{columns:1}}
+@media(max-width:570px){.wrap{padding:0 15px}.top{padding:30px 0}.section{padding:27px 0}.g3,.decision{grid-template-columns:1fr}.beforeafter{grid-template-columns:1fr}.arrow{transform:rotate(90deg)}}
+@media print{.nav,.btn,.decision button{display:none!important}body{background:white}.card{box-shadow:none;break-inside:avoid}.top{background:#10283f!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}.section{padding:18px 0}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+<div class="eyebrow">Guía de proyecto · Bachillerato · Python y Colab</div>
+<h1>RUTA IA: del problema al prototipo</h1>
+<p>Aprende a decidir qué tecnología tiene sentido, qué datos necesitas, cuándo usar algoritmos supervisados o no supervisados y cómo presentar una solución que otra persona pueda probar.</p>
+<div class="chips"><span class="chip">M2S1 · Machine Learning</span><span class="chip">M2S2 · Procesamiento de Lenguaje Natural</span><span class="chip">Visión artificial · panorama introductorio</span><span class="chip">Sin API · funciona en navegador</span></div>
+</div></header>
+<nav class="nav"><div class="wrap">
+<a href="#inicio">Inicio</a><a href="#decidir">Decidir la ruta</a><a href="#algoritmos">Algoritmos</a><a href="#campos">ML, PNL y visión</a><a href="#datos">Dataset</a><a href="#bibliotecas">Bibliotecas</a><a href="#ejemplos">Ejemplos</a><a href="#entrega">Proyecto visual</a><a href="#colab">Colab</a>
+</div></nav>
+<main>
+<section class="section" id="inicio"><div class="wrap">
+<h2>1. No empieces por el algoritmo. Empieza por la necesidad.</h2>
+<p class="intro">Una idea atractiva no siempre es un problema bien definido. Antes de buscar bibliotecas, aclara quién tiene la necesidad, qué información existe y qué resultado sería útil.</p>
+<div class="formula"><small>Plantilla para convertir una idea en problema</small>Cuando <u>[situación concreta]</u>, <u>[persona o comunidad]</u> necesita <u>[resultado útil]</u>, porque <u>[consecuencia o dificultad actual]</u>.</div>
+<div class="grid g2" style="margin-top:16px">
+<div class="card"><span class="tag gold">IDEA VAGA</span><h3>“Quiero hacer una IA para ayudar a los alumnos.”</h3><p class="muted">No explica qué dificultad atenderá, con qué información trabajará ni qué hará el sistema.</p></div>
+<div class="card"><span class="tag teal">PROPUESTA MÁS CLARA</span><h3>“Quiero organizar comentarios anónimos sobre servicios escolares.”</h3><p>El sistema clasificará cada comentario por tema —limpieza, atención o alimentos— para que el comité identifique los asuntos más mencionados.</p></div>
+</div>
+<div class="callout good"><strong>Regla de oro:</strong> si el alumno no puede explicar el problema sin decir “una IA que haga todo”, todavía necesita delimitarlo. El proyecto debe resolver una tarea concreta y comprobable.</div>
+</div></section>
+
+<section class="section" id="decidir" style="background:#edf3f8"><div class="wrap">
+<h2>2. Explorador: ¿qué ruta tecnológica tiene sentido?</h2>
+<p class="intro">Selecciona las características de tu problema. La orientación es una primera hipótesis: el equipo debe comprobarla con ejemplos y datos reales o autorizados.</p>
+<div class="card">
+<div class="decision">
+<div><label for="entrada">¿Qué recibe el sistema?</label><select id="entrada"><option value="tabla">Números, fechas o registros en una tabla</option><option value="texto">Texto: comentarios, mensajes, preguntas</option><option value="imagen">Fotografías, imágenes o video</option><option value="reglas">Datos sencillos y reglas explícitas</option></select></div>
+<div><label for="objetivo">¿Qué resultado buscas?</label><select id="objetivo"><option value="categoria">Elegir una categoría o clase</option><option value="numero">Estimar un número o cantidad</option><option value="grupos">Encontrar grupos o patrones sin categorías previas</option><option value="extraer">Encontrar palabras, datos o partes importantes</option><option value="accion">Ejecutar pasos definidos por reglas</option></select></div>
+<div><label for="etiquetas">¿Ya tienes ejemplos con la respuesta correcta?</label><select id="etiquetas"><option value="si">Sí, cada ejemplo tiene una etiqueta o resultado conocido</option><option value="no">No, solo tengo datos y quiero explorar patrones</option><option value="nose">Todavía no lo sé</option></select></div>
+<div><label for="volumen">¿Cuántos ejemplos tienes?</label><select id="volumen"><option value="pocos">Menos de 30</option><option value="medios">Entre 30 y 200</option><option value="muchos">Más de 200</option><option value="ninguno">Aún no tengo dataset</option></select></div>
+</div>
+<div style="display:flex;gap:9px;flex-wrap:wrap;margin-top:15px"><button class="btn" onclick="decidirRuta()">Orientarme</button><button class="btn secondary" onclick="resetRuta()">Limpiar</button></div>
+<div class="result" id="resultadoRuta" aria-live="polite"><strong>Tu orientación aparecerá aquí.</strong><p class="muted mini">Prueba, por ejemplo, texto + categoría + sí tengo etiquetas para explorar un clasificador de comentarios.</p></div>
+</div>
+<div class="grid g3" style="margin-top:16px">
+<div class="card"><span class="tag blue">PROGRAMACIÓN TRADICIONAL</span><h3>Reglas conocidas</h3><p>Cuando las condiciones son claras y están definidas por una persona, un programa con <code>if</code>, funciones y ciclos puede ser suficiente.</p><p class="mini muted">Ejemplo: avisar si una fecha de entrega ya venció.</p></div>
+<div class="card"><span class="tag teal">MACHINE LEARNING</span><h3>Aprender patrones de datos</h3><p>Se entrena un modelo para clasificar, estimar o agrupar ejemplos. No basta con decir “quiero predicciones”: se requieren datos adecuados.</p><p class="mini muted">Ejemplo: estimar la demanda de préstamo de libros.</p></div>
+<div class="card"><span class="tag purple">PNL / VISIÓN</span><h3>Tipo de información</h3><p>PNL trabaja con lenguaje humano; visión artificial trabaja con imágenes y video. Pueden usar ML, reglas o redes neuronales.</p><p class="mini muted">Ejemplo: clasificar comentarios / identificar objetos.</p></div>
+</div>
+</div></section>
+
+<section class="section" id="algoritmos"><div class="wrap">
+<h2>3. Algoritmos: etiquetados y no etiquetados</h2>
+<p class="intro">La pregunta clave es: ¿en los ejemplos históricos ya sabemos cuál era la respuesta correcta? Si sí, tenemos etiquetas para aprendizaje supervisado. Si no, podemos explorar estructura con métodos no supervisados.</p>
+<div class="grid g2">
+<div class="card" style="border-top:5px solid #2563eb"><span class="tag blue">SUPERVISADO · CON ETIQUETAS</span><h3>El dataset ya contiene la respuesta esperada</h3><p>El modelo observa ejemplos con sus resultados conocidos y aprende una relación para responder en ejemplos nuevos.</p>
+<div class="example"><strong>Ejemplo: comentarios escolares</strong><span class="dataset">comentario → etiqueta</span><br><span class="dataset">“La atención fue rápida” → ATENCIÓN</span><br><span class="dataset">“El patio estaba sucio” → LIMPIEZA</span></div>
+<ul class="mini"><li><strong>Clasificación:</strong> predice una categoría.</li><li><strong>Regresión:</strong> predice un valor numérico.</li></ul>
+<p><strong>Algoritmos iniciales:</strong></p><div class="pillrow"><span class="pill">Regresión logística</span><span class="pill">Árbol de decisión</span><span class="pill">K vecinos (KNN)</span><span class="pill">Random Forest</span><span class="pill">Naive Bayes</span><span class="pill">Regresión lineal</span></div></div>
+<div class="card" style="border-top:5px solid #0f766e"><span class="tag teal">NO SUPERVISADO · SIN ETIQUETAS</span><h3>El dataset no trae una respuesta correcta por fila</h3><p>El algoritmo busca semejanzas, agrupaciones o registros poco comunes. Después, las personas interpretan qué significan esos patrones.</p>
+<div class="example"><strong>Ejemplo: comentarios sin clasificar</strong><span class="dataset">comentario (sin etiqueta)</span><br><span class="dataset">“El precio es alto”</span><br><span class="dataset">“La comida cuesta mucho”</span><br><span class="dataset">“El baño necesita limpieza”</span></div>
+<ul class="mini"><li><strong>Agrupamiento:</strong> reúne ejemplos parecidos.</li><li><strong>Anomalías:</strong> detecta casos inusuales.</li></ul>
+<p><strong>Algoritmos iniciales:</strong></p><div class="pillrow"><span class="pill">K-Means</span><span class="pill">DBSCAN</span><span class="pill">PCA</span><span class="pill">Isolation Forest</span></div></div>
+</div>
+<div class="callout warning"><strong>¡Cuidado con la palabra “etiqueta”!</strong> No es el nombre del archivo ni el número de fila. Es la respuesta objetivo que queremos que el modelo aprenda a predecir. En clasificación supervisada puede ser <code>spam/no_spam</code>, <code>limpieza/atención/precio</code> o <code>sí/no</code>. En regresión puede ser un valor como <code>préstamos_del_día</code>.</div>
+<div class="tablewrap"><table><thead><tr><th>Pregunta del problema</th><th>Tipo de aprendizaje</th><th>Algoritmo posible</th><th>Qué debe tener el dataset</th></tr></thead><tbody>
+<tr><td>¿Este comentario pertenece a limpieza, atención o precio?</td><td>Supervisado · clasificación</td><td>LogisticRegression, Naive Bayes</td><td>Texto + columna etiqueta</td></tr>
+<tr><td>¿Cuántos préstamos de libros habrá mañana?</td><td>Supervisado · regresión</td><td>LinearRegression, RandomForestRegressor</td><td>Variables de entrada + valor histórico objetivo</td></tr>
+<tr><td>¿Qué grupos de comentarios se parecen?</td><td>No supervisado · agrupamiento</td><td>K-Means</td><td>Texto convertido a números, sin etiqueta previa</td></tr>
+<tr><td>¿Qué registro parece muy distinto a los demás?</td><td>No supervisado · anomalías</td><td>IsolationForest</td><td>Variables comparables; sin etiqueta necesaria</td></tr>
+</tbody></table></div>
+</div></section>
+
+<section class="section" id="campos" style="background:#edf3f8"><div class="wrap">
+<h2>4. ¿Cuándo es ML, PNL o visión artificial?</h2>
+<p class="intro">No son tres nombres para lo mismo. Machine Learning es una familia de métodos para aprender patrones desde datos. PNL y visión artificial se refieren al tipo de información y tareas que se procesan. Pueden combinarse.</p>
+<div class="grid g3">
+<div class="card"><span class="tag blue">MACHINE LEARNING</span><h3>Datos en forma de variables</h3><p>Tablas con números y categorías para descubrir relaciones, clasificar o estimar.</p><p class="mini"><strong>Entradas:</strong> columnas como fecha, cantidad, temperatura, uso.</p><p class="mini"><strong>Salida:</strong> categoría, estimación o grupo.</p></div>
+<div class="card"><span class="tag teal">PNL · LENGUAJE</span><h3>Palabras, frases y documentos</h3><p>Permite procesar texto humano: separar tokens, quitar ruido, convertir texto en vectores, clasificar opiniones o recuperar información.</p><p class="mini"><strong>Entradas:</strong> comentarios, preguntas, documentos.</p><p class="mini"><strong>Salida:</strong> tema, sentimiento, intención o términos relevantes.</p></div>
+<div class="card"><span class="tag purple">VISIÓN ARTIFICIAL</span><h3>Imágenes y video</h3><p>Analiza pixeles para clasificar imágenes, detectar objetos, localizar regiones o seguir movimiento.</p><p class="mini"><strong>Entradas:</strong> fotografías, cuadros de video.</p><p class="mini"><strong>Salida:</strong> clase, objeto o ubicación.</p><p class="mini muted">Se presenta como panorama, no como eje obligatorio del módulo.</p></div>
+</div>
+<div class="callout good"><strong>Idea importante para M2S2:</strong> PNL no significa automáticamente Machine Learning. Tokenizar, contar palabras o buscar una expresión puede hacerse con reglas. Cuando usamos ejemplos etiquetados para que un modelo aprenda a clasificar texto, combinamos PNL + Machine Learning.</div>
+<div class="grid g2">
+<div class="card"><h3>Ejemplo: PNL sin modelo ML</h3><p>Buscar en un texto palabras como “horario”, “inscripción” o “constancia” con reglas o expresiones regulares. Sirve como primer prototipo, pero no comprende todas las formas de expresar una pregunta.</p></div>
+<div class="card"><h3>Ejemplo: PNL + ML</h3><p>Reunir preguntas etiquetadas por intención —horarios, becas, inscripción—, convertirlas con TF-IDF y entrenar un clasificador. El modelo aprende patrones de ejemplos.</p></div>
+</div>
+</div></section>
+
+<section class="section" id="datos"><div class="wrap">
+<h2>5. Diseñar un dataset que sí sirva</h2>
+<p class="intro">Un dataset es una colección organizada de ejemplos. Cada fila representa un caso y cada columna describe una característica o el resultado conocido.</p>
+<div class="grid g3">
+<div class="card"><span class="tag blue">TABULAR · SUPERVISADO</span><h3>Préstamo de libros</h3><p class="mini muted">Objetivo: estimar cuántos préstamos habrá cada día.</p><div class="tablewrap"><table><thead><tr><th>día</th><th>examen</th><th>préstamos</th></tr></thead><tbody><tr><td>lunes</td><td>sí</td><td>32</td></tr><tr><td>martes</td><td>no</td><td>18</td></tr><tr><td>miércoles</td><td>sí</td><td>29</td></tr></tbody></table></div><p class="mini">La columna <code>préstamos</code> es el objetivo numérico.</p></div>
+<div class="card"><span class="tag teal">TEXTO · SUPERVISADO</span><h3>Clasificar comentarios</h3><p class="mini muted">Objetivo: asignar un tema a cada comentario.</p><div class="tablewrap"><table><thead><tr><th>comentario</th><th>etiqueta</th></tr></thead><tbody><tr><td>“El patio está sucio”</td><td>limpieza</td></tr><tr><td>“Me atendieron rápido”</td><td>atención</td></tr><tr><td>“El precio aumentó”</td><td>precio</td></tr></tbody></table></div><p class="mini">La columna <code>etiqueta</code> contiene la respuesta esperada.</p></div>
+<div class="card"><span class="tag gold">TEXTO · NO SUPERVISADO</span><h3>Encontrar temas similares</h3><p class="mini muted">Objetivo: descubrir agrupaciones sin decidir categorías antes.</p><div class="tablewrap"><table><thead><tr><th>comentario</th></tr></thead><tbody><tr><td>“El patio está sucio”</td></tr><tr><td>“El baño requiere limpieza”</td></tr><tr><td>“El precio aumentó”</td></tr></tbody></table></div><p class="mini">No existe columna de etiqueta. El equipo interpreta los grupos después.</p></div>
+</div>
+<h3 style="margin-top:24px">Plantilla mínima para construir los datos</h3>
+<div class="tablewrap"><table><thead><tr><th>Decisión</th><th>Preguntas que debe contestar el equipo</th></tr></thead><tbody>
+<tr><td>Unidad de análisis</td><td>¿Qué representa una fila: un comentario, un día, un equipo, una imagen?</td></tr><tr><td>Variables</td><td>¿Qué columnas describen cada caso? ¿Son numéricas, categóricas, fecha o texto?</td></tr><tr><td>Objetivo / etiqueta</td><td>¿Qué queremos predecir? ¿Quién asignó la etiqueta y con qué criterio?</td></tr><tr><td>Origen y permiso</td><td>¿Los datos son propios, públicos, simulados o autorizados? ¿Se pueden usar?</td></tr><tr><td>Calidad</td><td>¿Hay filas duplicadas, campos vacíos, etiquetas contradictorias o clases muy desbalanceadas?</td></tr><tr><td>Separación</td><td>¿Cómo reservaremos ejemplos de prueba que el modelo no verá durante el entrenamiento?</td></tr>
+</tbody></table></div>
+<div class="callout warning"><strong>Para una práctica escolar:</strong> comenzar con datos sintéticos o públicos y anónimos es válido para aprender el procedimiento. No subir nombres, teléfonos, matrículas, fotografías identificables, conversaciones privadas ni datos sensibles. Un dataset pequeño sirve para una demostración didáctica, pero no demuestra que el modelo sea confiable para uso real.</div>
+</div></section>
+
+<section class="section" id="bibliotecas" style="background:#edf3f8"><div class="wrap">
+<h2>6. Bibliotecas Python: pocas y con propósito</h2>
+<p class="intro">No se trata de instalar veinte bibliotecas. Primero identifica la tarea; después elige el conjunto mínimo que permita resolverla y explicar cada paso.</p>
+<div class="tablewrap"><table><thead><tr><th>Biblioteca</th><th>¿Para qué sirve?</th><th>Cuándo usarla</th><th>Prioridad didáctica</th></tr></thead><tbody>
+<tr><td><strong>pandas</strong></td><td>Leer, organizar y transformar tablas (DataFrame).</td><td>CSV, Excel, columnas, filas, valores vacíos.</td><td><span class="tag blue">Base</span></td></tr>
+<tr><td><strong>NumPy</strong></td><td>Operaciones numéricas y arreglos.</td><td>Cuando se trabaja con matrices y cálculos.</td><td><span class="tag blue">Base</span></td></tr>
+<tr><td><strong>Matplotlib</strong></td><td>Gráficas para explorar datos y resultados.</td><td>Frecuencias, comparaciones, métricas.</td><td><span class="tag blue">Base</span></td></tr>
+<tr><td><strong>scikit-learn</strong></td><td>Preparar datos, dividir conjuntos, entrenar modelos y evaluar.</td><td>Clasificación, regresión, clustering y TF-IDF.</td><td><span class="tag blue">Base M2S1</span></td></tr>
+<tr><td><strong>re</strong></td><td>Expresiones regulares incluidas en Python.</td><td>Patrones, folios ficticios, correos de ejemplo, limpieza sencilla de texto.</td><td><span class="tag teal">Base M2S2</span></td></tr>
+<tr><td><strong>NLTK</strong></td><td>Procesamiento lingüístico: tokenización, corpus y recursos de lenguaje.</td><td>Tokens, stopwords y ejercicios iniciales de PNL.</td><td><span class="tag teal">Base M2S2</span></td></tr>
+<tr><td><strong>spaCy</strong></td><td>Procesamiento de lenguaje con modelos lingüísticos.</td><td>Cuando se avance a entidades, lematización y análisis más completo.</td><td><span class="tag gold">Después</span></td></tr>
+<tr><td><strong>OpenCV / Pillow</strong></td><td>Leer, transformar y procesar imágenes.</td><td>Introducción a visión artificial.</td><td><span class="tag purple">Exploración</span></td></tr>
+<tr><td><strong>TensorFlow / PyTorch</strong></td><td>Construir y entrenar redes neuronales.</td><td>Modelos profundos; requieren más explicación y recursos.</td><td><span class="tag gold">Avanzado</span></td></tr>
+<tr><td><strong>Gradio</strong></td><td>Crear una interfaz de demostración alrededor de una función Python o un modelo.</td><td>Convertir el resultado del proyecto en algo que el público pueda probar.</td><td><span class="tag teal">Presentación</span></td></tr>
+</tbody></table></div>
+<div class="callout"><strong>Ruta mínima recomendada para los módulos:</strong> <code>pandas</code> + <code>scikit-learn</code> para ML; <code>re</code> + <code>NLTK</code> + <code>scikit-learn</code> para PNL con clasificación de texto. Agrega Gradio solo cuando el modelo o proceso ya funcione.</div>
+</div></section>
+
+<section class="section" id="ejemplos"><div class="wrap">
+<h2>7. Dos proyectos ejemplo, desde la idea hasta la prueba</h2>
+<div class="card" style="margin-bottom:17px">
+<span class="tag teal">EJEMPLO A · PNL + ML SUPERVISADO</span><h3>Organizador de comentarios escolares</h3>
+<div class="step"><div class="stepnum">1</div><div><strong>Problema</strong><br>Los comentarios sobre un servicio llegan mezclados y cuesta identificar los temas frecuentes.</div></div>
+<div class="step"><div class="stepnum">2</div><div><strong>Objetivo</strong><br>Clasificar comentarios anónimos en categorías definidas: limpieza, atención, precio o calidad.</div></div>
+<div class="step"><div class="stepnum">3</div><div><strong>Dataset</strong><br>Columnas: <code>comentario</code> y <code>etiqueta</code>. El equipo crea ejemplos ficticios o usa datos autorizados; define reglas claras para asignar cada etiqueta.</div></div>
+<div class="step"><div class="stepnum">4</div><div><strong>Ruta técnica</strong><br>Revisar textos → normalizar lo necesario → TF-IDF → separar entrenamiento/prueba → entrenar un clasificador sencillo (por ejemplo, Regresión Logística o Naive Bayes) → evaluar.</div></div>
+<div class="step"><div class="stepnum">5</div><div><strong>Evaluación</strong><br>Revisar matriz de confusión, precisión, recall y F1 por categoría. No quedarse solo con accuracy si las categorías tienen cantidades muy diferentes.</div></div>
+<div class="step"><div class="stepnum">6</div><div><strong>Demostración visual</strong><br>Una persona escribe un comentario de prueba; la interfaz muestra la categoría predicha y una nota de que el resultado es una sugerencia, no una decisión oficial.</div></div>
+</div>
+<div class="card">
+<span class="tag blue">EJEMPLO B · ML SUPERVISADO TABULAR</span><h3>Estimador didáctico de préstamos de biblioteca</h3>
+<div class="step"><div class="stepnum">1</div><div><strong>Problema</strong><br>La biblioteca quiere explorar si ciertos factores coinciden con días de más préstamos.</div></div>
+<div class="step"><div class="stepnum">2</div><div><strong>Objetivo</strong><br>Estimar la cantidad de préstamos de un día a partir de variables sencillas.</div></div>
+<div class="step"><div class="stepnum">3</div><div><strong>Dataset</strong><br>Columnas de entrada: día de la semana, si hay examen, actividad escolar y préstamos de días anteriores. Columna objetivo: <code>prestamos</code>.</div></div>
+<div class="step"><div class="stepnum">4</div><div><strong>Ruta técnica</strong><br><code>pandas</code> para DataFrame → exploración con gráficas → división entrenamiento/prueba → Regresión Lineal como primer modelo → comparar con un modelo de árbol.</div></div>
+<div class="step"><div class="stepnum">5</div><div><strong>Evaluación</strong><br>Usar MAE y comparar el error con un método base sencillo. El resultado no es una certeza ni debe usarse para asignar recursos sin revisión.</div></div>
+<div class="step"><div class="stepnum">6</div><div><strong>Demostración visual</strong><br>Un formulario permite elegir condiciones del día y presenta el número estimado, junto con una explicación de las variables utilizadas y las limitaciones.</div></div>
+</div>
+<div class="callout warning"><strong>Advertencia sobre datos pequeños:</strong> si el grupo inventa solo 10 o 15 filas, puede demostrar cómo funciona el flujo, pero no afirmar que descubrió un patrón confiable. Debe indicar que es un prototipo educativo y explicar qué datos necesitaría para mejorar.</div>
+</div></section>
+
+<section class="section" id="entrega" style="background:#edf3f8"><div class="wrap">
+<h2>8. ¿Cómo se entrega como proyecto visual?</h2>
+<p class="intro">El público de la exposición no debería tener que leer todo el código. Debe entender el problema, probar una entrada y observar qué produce el prototipo. El código y los datos quedan como evidencia técnica.</p>
+<div class="grid g2" style="align-items:start">
+<div class="mock"><div class="mockhead">Prototipo visual · Organizador de comentarios</div><div class="mockbody"><div class="mini muted">PROBLEMA QUE ATIENDE</div><strong>Organizar opiniones anónimas por tema</strong><div class="mini muted" style="margin-top:12px">ESCRIBE UN COMENTARIO DE PRUEBA</div><div class="mockinput">“El patio necesita más limpieza.”</div><span class="mockbutton">Analizar comentario</span><div class="mockout"><strong>Resultado de demostración</strong><div>Posible categoría: <b>LIMPIEZA</b></div><div class="mini muted">Resultado ilustrativo. El modelo puede equivocarse y requiere revisión humana.</div></div><div class="pillrow"><span class="pill">Dataset anónimo</span><span class="pill">TF-IDF</span><span class="pill">Clasificador</span></div></div></div>
+<div class="card"><h3>Elementos que debe mostrar la interfaz</h3><ol class="mini"><li>Nombre del proyecto y problema concreto.</li><li>Un campo para introducir el dato de prueba.</li><li>Un botón claro para ejecutar la acción.</li><li>Un resultado legible: categoría, estimación o grupo.</li><li>Una explicación breve de qué significa el resultado.</li><li>Limitaciones, fuente de datos y advertencia de uso responsable.</li></ol><h3 style="margin-top:18px">Herramienta visual sugerida</h3><p><strong>Gradio</strong> permite construir una interfaz web en Python alrededor de una función o modelo sin programar todo el frontend. Puede ejecutarse en notebooks y mostrar la demostración; para compartir mediante enlace público hay que evitar datos privados y revisar las condiciones del entorno.</p><p class="mini"><a href="https://www.gradio.app/guides/quickstart" target="_blank" rel="noopener">Guía oficial de Gradio</a></p></div>
+</div>
+<div class="grid g3" style="margin-top:16px">
+<div class="card"><h3>1. Presentación</h3><p class="mini">Problema, objetivo, beneficiarios, importancia y alcance.</p></div><div class="card"><h3>2. Demostración</h3><p class="mini">Interfaz que recibe un ejemplo y muestra la salida del sistema.</p></div><div class="card"><h3>3. Evidencia técnica</h3><p class="mini">Dataset, notebook, algoritmo, métricas, pruebas y limitaciones.</p></div>
+</div>
+<div class="callout good"><strong>La interfaz no sustituye al modelo.</strong> Un formulario bonito que devuelve respuestas inventadas no es un proyecto de ML. La demostración debe llamar al proceso real que el equipo desarrolló y evaluó en Python.</div>
+</div></section>
+
+<section class="section" id="colab"><div class="wrap">
+<h2>9. Google Colab: el esqueleto técnico, no toda la exposición</h2>
+<p class="intro">El cuaderno de Colab funciona como bitácora técnica. Contiene las etapas en orden y espacios para que cada equipo complete su propio trabajo. La página visual sirve para que el público pruebe el prototipo.</p>
+<div class="grid g2">
+<div class="card"><h3>Lo que debe mostrar Colab</h3><ol class="mini"><li>Problema y objetivo del equipo.</li><li>Importación del dataset.</li><li>Revisión de filas, columnas y tipos de datos.</li><li>Preparación de variables y etiqueta (si aplica).</li><li>Separación entrenamiento y prueba (si es supervisado).</li><li>Transformación de datos o texto.</li><li>Entrenamiento del algoritmo o agrupamiento.</li><li>Evaluación e interpretación.</li><li>Prueba con un caso nuevo.</li><li>Conclusiones y limitaciones.</li></ol></div>
+<div class="card"><h3>Lo que NO debe ser Colab</h3><ul class="mini"><li>Una colección de celdas copiadas sin explicación.</li><li>Un modelo sin dataset identificable.</li><li>Una accuracy presentada como garantía.</li><li>Un proyecto donde el alumno no pueda explicar la etiqueta y el algoritmo.</li><li>La única interfaz que el visitante debe entender para conocer el proyecto.</li></ul><p><a class="btn" href="Esqueleto_Proyecto_IA_Colab.ipynb" download>Descargar esqueleto de Colab (.ipynb)</a></p><p class="smallnote">Descarga el cuaderno y súbelo a Google Colab. Las celdas tienen comentarios TODO para completar, no un proyecto resuelto.</p></div>
+</div>
+<h3 style="margin-top:20px">Vista previa del esqueleto</h3>
+<pre># 1. IMPORTAR BIBLIOTECAS
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.pipeline import Pipeline
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import classification_report, ConfusionMatrixDisplay
+
+# 2. CARGAR DATASET
+# TODO: cargar el CSV creado o autorizado por el equipo.
+
+# 3. EXPLORAR DATOS
+# TODO: revisar shape, head(), info(), nulos y distribución de etiquetas.
+
+# 4. DEFINIR ENTRADAS Y OBJETIVO
+# TODO: indicar el nombre real de la columna de texto y de la etiqueta.
+
+# 5. DIVIDIR DATOS
+# TODO: reservar datos de prueba; justificar la estrategia.
+
+# 6. TRANSFORMAR TEXTO Y ENTRENAR
+# TODO: completar el pipeline TF-IDF + algoritmo elegido.
+
+# 7. EVALUAR
+# TODO: interpretar métricas y matriz de confusión.
+
+# 8. PROBAR UN CASO NUEVO
+# TODO: introducir un ejemplo que no se haya utilizado para entrenar.</pre>
+<div class="callout"><strong>Nota:</strong> este cuaderno es una plantilla para clasificación de texto supervisada. Los proyectos tabulares, de regresión o no supervisados deben adaptar las celdas; no se debe forzar TF-IDF a un dataset numérico.</div>
+</div></section>
+
+<section class="section" style="background:#edf3f8"><div class="wrap">
+<h2>10. Checklist de una propuesta que sí está lista para revisión</h2>
+<p class="intro">Antes de pedir autorización, el equipo debe poder contestar estas preguntas con frases concretas.</p>
+<div class="grid g2"><div class="card"><ul class="checklist"><li>Puedo describir el problema en dos o tres oraciones.</li><li>Identifiqué quién se beneficiaría.</li><li>Mi objetivo se puede observar o medir.</li><li>Sé qué información recibirá el sistema.</li><li>Puedo explicar qué resultado entregará.</li></ul></div><div class="card"><ul class="checklist"><li>Sé si mi información es texto, tabla, imagen o una mezcla.</li><li>Sé si tengo etiquetas o no, y qué significan.</li><li>Tengo una idea inicial de cómo construir el dataset.</li><li>Puedo justificar por qué necesito ML, PNL, visión o reglas.</li><li>Reconozco los límites y riesgos de mi propuesta.</li></ul></div></div>
+<div class="formula" style="margin-top:16px"><small>La pregunta que cada alumno debe poder responder</small>¿Por qué elegí este algoritmo y estos datos para resolver este problema, y cómo demostraré que mi solución funciona?</div>
+</div></section>
+
+<section class="section"><div class="wrap">
+<h2>Recursos oficiales para continuar aprendiendo</h2>
+<ul class="ref-list">
+<li><a href="https://scikit-learn.org/stable/getting_started.html" target="_blank" rel="noopener">Scikit-learn · Getting Started</a> — aprendizaje supervisado y no supervisado, ajuste y predicción.</li>
+<li><a href="https://scikit-learn.org/stable/modules/feature_extraction.html" target="_blank" rel="noopener">Scikit-learn · Feature extraction</a> — Bag of Words, TF-IDF y conversión de texto en características numéricas.</li>
+<li><a href="https://www.nltk.org/" target="_blank" rel="noopener">NLTK</a> — procesamiento de lenguaje, tokenización y recursos lingüísticos.</li>
+<li><a href="https://docs.opencv.org/5.0/py_tutorials/py_tutorials.html" target="_blank" rel="noopener">OpenCV-Python tutorials</a> — imágenes, video, transformaciones y detección.</li>
+<li><a href="https://www.gradio.app/guides/quickstart" target="_blank" rel="noopener">Gradio Quickstart</a> — crear una interfaz de demostración con Python.</li>
+<li><a href="https://scikit-learn.org/stable/modules/model_evaluation.html" target="_blank" rel="noopener">Scikit-learn · Model evaluation</a> — métricas, precisión, recall y F1.</li>
+</ul>
+<p class="smallnote">Material didáctico de apoyo. Las sugerencias no sustituyen la revisión del docente ni garantizan que un algoritmo sea adecuado para cualquier conjunto de datos.</p>
+</div></section>
+</main>
+<footer class="footer"><div class="wrap"><strong>RUTA IA · Del problema al prototipo</strong><p class="mini">Material de acompañamiento para M2S1 Machine Learning y M2S2 Procesamiento de Lenguaje Natural. Visión artificial se aborda como referencia introductoria.</p></div></footer>
+<script>
+function decidirRuta(){
+ const e=document.getElementById('entrada').value,o=document.getElementById('objetivo').value,l=document.getElementById('etiquetas').value,v=document.getElementById('volumen').value;
+ let title='',body='',warn='';
+ if(e==='reglas'||o==='accion'){
+  title='Primero prueba programación tradicional.';
+  body='Si las condiciones son explícitas y estables, empieza con Python: if/elif, funciones, listas y validaciones. No agregues ML solo para que el proyecto parezca más avanzado.';
+ }else if(e==='imagen'){
+  title='Ruta de visión artificial (tema de exploración).';
+  body='El dato principal es una imagen o video. Comienza por leer y visualizar imágenes con Pillow u OpenCV. Si buscas clasificar o detectar objetos, necesitarás un conjunto de imágenes y un método de visión; los modelos profundos requieren más recursos y preparación.';
+ }else if(e==='texto'){
+  title='Ruta de PNL: primero prepara el lenguaje.';
+  body='Inspecciona los textos, define la tarea y construye un corpus. Para reglas o extracción usa re; para tokens y recursos usa NLTK; para convertir texto a números usa CountVectorizer o TfidfVectorizer de scikit-learn.';
+  if(o==='extraer') body+=' Puedes iniciar con expresiones regulares, reglas y extracción de términos; no necesariamente necesitas entrenar ML.';
+  else if(l==='si') body+=' Como tienes etiquetas, puedes probar clasificación supervisada (por ejemplo Naive Bayes o Regresión Logística) después de transformar el texto.';
+  else if(l==='no') body+=' Como no tienes etiquetas, puedes explorar agrupamiento con TF-IDF + K-Means. Los grupos requieren interpretación humana.';
+  else body+=' Antes de elegir algoritmo, decide si alguien puede asignar etiquetas confiables o si deseas descubrir grupos.';
+ }else{
+  title='Ruta de Machine Learning con datos tabulares.';
+  if(o==='numero'){
+   body='La salida es un número: si cuentas con ejemplos históricos y el valor objetivo, es regresión supervisada. Prueba primero LinearRegression y compara el error con una referencia sencilla.';
+   if(l==='no') warn='Sin valores objetivo conocidos no puedes entrenar una regresión supervisada; primero necesitas datos históricos con el valor que deseas estimar.';
+  }else if(o==='grupos'){
+   body='Quieres descubrir agrupaciones: ruta no supervisada. Explora variables, escala cuando sea necesario y prueba K-Means o DBSCAN. No existe una etiqueta verdadera por fila.';
+  }else if(o==='extraer'){
+   body='Si necesitas extraer patrones de texto o campos, primero aclara si son reglas definidas o si realmente hay datos tabulares que permitan aprender. No fuerces un clasificador.';
+  }else{
+   body='La salida es una categoría: si cada fila ya tiene esa respuesta, usa clasificación supervisada. Puedes comenzar con árbol de decisión, KNN o Regresión Logística.';
+   if(l==='no') warn='Todavía no tienes etiquetas: no puedes entrenar un clasificador supervisado. Puedes crear etiquetas justificadas o explorar agrupamiento, según tu objetivo.';
+  }
+ }
+ if(v==='ninguno') warn+=' Aún no tienes dataset: define columnas/campos, crea ejemplos ficticios para practicar o localiza datos públicos con permiso y documentación.';
+ if(v==='pocos') warn+=' Con menos de 30 ejemplos, el resultado será muy limitado. Úsalos para aprender el flujo, no para afirmar que el modelo es confiable.';
+ if(l==='nose' && e!=='reglas' && e!=='imagen') warn+=' La decisión entre supervisado y no supervisado sigue abierta: define qué significa una etiqueta y si es posible asignarla de forma consistente.';
+ document.getElementById('resultadoRuta').innerHTML='<h3>'+title+'</h3><p>'+body+'</p>'+(warn?'<p class="mini" style="color:#92400e"><strong>Revisa:</strong> '+warn+'</p>':'')+'<p class="mini muted">Siguiente paso: escribe el objetivo en una frase, diseña tres filas de ejemplo y verifica si las entradas y la salida realmente responden al problema.</p>';
+}
+function resetRuta(){document.getElementById('entrada').value='tabla';document.getElementById('objetivo').value='categoria';document.getElementById('etiquetas').value='si';document.getElementById('volumen').value='pocos';document.getElementById('resultadoRuta').innerHTML='<strong>Tu orientación aparecerá aquí.</strong><p class="muted mini">Prueba, por ejemplo, texto + categoría + sí tengo etiquetas para explorar un clasificador de comentarios.</p>';}
+</script>
+</body></html>
